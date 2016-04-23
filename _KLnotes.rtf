@@ -7,7 +7,7 @@
 \red69\green69\blue69;\red248\green255\blue82;\red26\green26\blue26;\red234\green234\blue234;\red103\green34\blue1;
 \red28\green198\blue9;\red252\green143\blue135;\red249\green205\blue143;\red248\green238\blue138;\red212\green233\blue150;
 \red167\green208\blue255;\red224\green190\blue234;\red205\green205\blue205;}
-\paperw12240\paperh15840\vieww12140\viewh9000\viewkind0
+\paperw12240\paperh15840\vieww13200\viewh11360\viewkind0
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 
 \f0\fs24 \cf2 \
@@ -27,14 +27,11 @@ As the lessons are being completed make noted in DETAILS section. Then summarise
 \f1\fs36 \cf4 JUST COMMANDS
 \f2\fs24 \cf0 \
 \
-Quickly clear screen and lose output history\
 \
   
 \f3\fs26 \cf1 \cb5 \expnd0\expndtw0\kerning0
-Command l
+Command k
 \f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
-\
-Quick look inside a text file?\
 \
   
 \f3\fs26 \cf1 \cb5 \expnd0\expndtw0\kerning0
@@ -43,55 +40,19 @@ cat fruit.txt
 \
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
 
-\f2\fs24 \cf0 \CocoaLigature1 "Grep for apple inside fruit.txt" meaning: Search for and print... (
-\b G
-\b0 lobal 
-\b r
-\b0 egular 
-\b e
-\b0 xpression 
-\b p
-\b0 rint)\
-\
-  
+\f2\fs24 \cf0 \CocoaLigature1   
 \f3\fs26 \cf1 \cb5 \expnd0\expndtw0\kerning0
 grep apple fruit.txt
 \f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
 \
-Case insensitive -i:\
+Switches: -i -w -v -n -c\
 \
   
 \f3\fs26 \cf1 \cb5 \expnd0\expndtw0\kerning0
-grep -i apple fruit.txt
+grep -R apple .
 \f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
 \
-Match only whole words -w, i.e. do not match pineapple\
 \
-  
-\f3\fs26 \cf1 \cb5 \expnd0\expndtw0\kerning0
-grep -w apple fruit.txt
-\f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
-\
-Inversion option -v, i.e. match the lines that do not have apple in them. Will match many lines.\
-\
-  
-\f3\fs26 \cf1 \cb5 \expnd0\expndtw0\kerning0
-grep -v apple fruit.txt
-\f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
-\
-Line number option -n, gives line numbers in front of the matching lines\
-\
-  
-\f3\fs26 \cf1 \cb5 \expnd0\expndtw0\kerning0
-grep -n apple fruit.txt
-\f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
-\
-The count option -c, returns just a count integer\
-\
-  
-\f3\fs26 \cf1 \cb5 \expnd0\expndtw0\kerning0
-grep -c apple fruit.txt
-\f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
 \
 \
 \
@@ -123,15 +84,78 @@ grep -c apple fruit.txt
 \f0\fs26 \cf0 \
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
 
-\f2\b\fs34 \cf0 8.1 grep- Searching for matching expressions
+\f2\b\fs34 \cf0 Find a text inside a given file
 \f0\b0\fs26 \
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 \cf0 \
-                                                                                     23.04.2016\
+                                              23.04.2016\
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
 
 \f2\fs24 \cf0 \
-	copy\
+Quickly clear screen and lose output history\
+\
+	
+\f3\fs26 \cf1 \cb5 \expnd0\expndtw0\kerning0
+Command k
+\f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
+\
+Quick look inside a text file?\
+\
+	
+\f3\fs26 \cf1 \cb5 \expnd0\expndtw0\kerning0
+cat fruit.txt
+\fs20 \cf0 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 \
+\
+
+\f2\fs24 \CocoaLigature1 "Grep for apple inside fruit.txt" meaning: Search for and print... (
+\b G
+\b0 lobal 
+\b r
+\b0 egular 
+\b e
+\b0 xpression 
+\b p
+\b0 rint)\
+\
+	
+\f3\fs26 \cf1 \cb5 \expnd0\expndtw0\kerning0
+grep apple fruit.txt
+\f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
+\
+Case insensitive -i:\
+\
+	
+\f3\fs26 \cf1 \cb5 \expnd0\expndtw0\kerning0
+grep -i apple fruit.txt
+\f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
+\
+Match only whole words -w, i.e. do not match pineapple\
+\
+	
+\f3\fs26 \cf1 \cb5 \expnd0\expndtw0\kerning0
+grep -w apple fruit.txt
+\f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
+\
+Inversion option -v, i.e. match the lines that do not have apple in them. Will match many lines.\
+\
+	
+\f3\fs26 \cf1 \cb5 \expnd0\expndtw0\kerning0
+grep -v apple fruit.txt
+\f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
+\
+Line number option -n, gives line numbers in front of the matching lines\
+\
+  
+\f3\fs26 \cf1 \cb5 \expnd0\expndtw0\kerning0
+grep -n apple fruit.txt
+\f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
+\
+The count option -c, returns just a count integer\
+\
+	
+\f3\fs26 \cf1 \cb5 \expnd0\expndtw0\kerning0
+grep -c apple fruit.txt
+\f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
 \
 		
 \f0\fs26 \cf7 8.1 grep- Searching for matching expressions
@@ -140,17 +164,63 @@ grep -c apple fruit.txt
 \
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
 
-\b\fs34 \cf0 T
+\b\fs34 \cf0 Find a text inside any of the files in a given directory\
+Pipe other output into grep
 \b0\fs24 \
-	c\
+	The -R (Recursive) option is necessary.\
 \
+	
+\f3\fs26 \cf1 \cb5 \expnd0\expndtw0\kerning0
+grep -R apple .
+\f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
+\
+	The 
+\f3\fs26 \cf1 \cb5 \expnd0\expndtw0\kerning0
+-h
+\f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0  option hides the path and the file name\
+	The 
+\f3\fs26 \cf1 \cb5 \expnd0\expndtw0\kerning0
+-l
+\f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0  option shows only the file paths (not the lines of text containing the matches).\
+	The 
+\f3\fs26 \cf1 \cb5 \expnd0\expndtw0\kerning0
+-L
+\f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0  option shows the file paths for which there is no match.\
+\
+	grep for apple inside any files in the current directory that ends in fruit.txt\
+	
+\f3\fs26 \cf1 \cb5 \expnd0\expndtw0\kerning0
+grep apple *fruit.txt
+\f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
+\
+	We can pipe the result of a cat into grep\
+	
+\f3\fs26 \cf1 \cb5 \expnd0\expndtw0\kerning0
+cat fruit.txt | grep apple
+\f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
+\
+	The above is a little pointless. However, we can pipe anything, for example a list of all running processes into grep:\
+	
+\f3\fs26 \cf1 \cb5 \expnd0\expndtw0\kerning0
+ps aux | grep Terminal
+\f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
+\
+	We can pipe the history (of the commands in this session) to grep:\
+	
+\f3\fs26 \cf1 \cb5 \expnd0\expndtw0\kerning0
+history | grep ls
+\fs20 \cf0 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f2\fs24 \cf0 \CocoaLigature1 \
 		
-\f0\fs26 \cf7 m
+\f0\fs26 \cf7 8.2 grep- Multiple files, other input
 \f2\fs24 \cf0 \
 \
 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
 
-\b\fs34 T
+\b\fs34 \cf0 T
 \b0\fs24 \
 	c\
 \
