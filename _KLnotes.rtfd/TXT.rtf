@@ -1,14 +1,14 @@
 {\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf110
 {\fonttbl\f0\fnil\fcharset0 HelveticaNeue;\f1\fnil\fcharset0 ArnoPro-Caption;\f2\fswiss\fcharset0 Helvetica;
-\f3\fnil\fcharset0 Monaco;\f4\fnil\fcharset0 Consolas;\f5\fnil\fcharset0 ArnoPro-Regular;
-}
+\f3\fnil\fcharset0 Monaco;\f4\fnil\fcharset0 Consolas;\f5\fnil\fcharset0 Consolas-Italic;
+\f6\fnil\fcharset0 LucidaGrande;\f7\fnil\fcharset0 ArnoPro-Regular;}
 {\colortbl;\red255\green255\blue255;\red36\green36\blue36;\red181\green16\blue26;\red0\green139\blue208;
 \red38\green38\blue38;\red232\green14\blue8;\red40\green108\blue185;\red26\green26\blue26;\red234\green234\blue234;
 \red190\green190\blue190;\red0\green0\blue163;\red178\green178\blue178;\red9\green109\blue238;\red255\green87\blue0;
 \red69\green69\blue69;\red248\green255\blue82;\red103\green34\blue1;\red28\green198\blue9;\red252\green143\blue135;
 \red249\green205\blue143;\red248\green238\blue138;\red212\green233\blue150;\red167\green208\blue255;\red224\green190\blue234;
 \red205\green205\blue205;}
-\paperw12240\paperh15840\vieww16700\viewh13080\viewkind0
+\paperw12240\paperh15840\vieww13200\viewh13080\viewkind0
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 
 \f0\fs24 \cf2 \
@@ -636,6 +636,19 @@ put these lines in
 export GREP_COLOR="34;47"\
 export GREP_OPTIONS="--color=auto"\
 \
+
+\f2\fs24 \cf0 Then make bash use 
+\f4\fs28 \cf2 .bashrc
+\f2\fs24 \cf0  by putting these lines in 
+\f4\fs28 \cf2 .bash_profile
+\f2\fs24 \cf0 \
+
+\f4\fs28 \cf2 \
+if [ -f ~/.bashrc ]; then\
+  source ~/.bashrc\
+fi\
+\
+\
 OTHER COLOURS\
 \
 foreground colors     background colors     attributes\
@@ -757,7 +770,8 @@ grep [[:alpha:]] fruit.txt
 \cf11 \cb12 raspberry\cf0 \cb1 \
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
 
-\f2\fs24 \cf0 \CocoaLigature1 \
+\f2\fs24 \cf0 \CocoaLigature1 ...\
+\
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
 
 \b \cf0 Note:
@@ -805,52 +819,272 @@ In 3, we escape the + so it is not interpreted as a literal + sign, but as meani
 \
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
 
-\b\fs34 \cf0 T
+\b\fs34 \cf0 tr
 \b0\fs24 \
-	c\
+	Is search and replace. For example, search for ',' and replace them with '-'\
+	
+\f3\fs26 \cf1 \cb5 \expnd0\expndtw0\kerning0
+echo 'a,b,c' | tr ',' '-'
+\fs20 \cf0 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 \
+a-b-c
+\f2\fs24 \CocoaLigature1 \
+\
+	Replace every 1 with A and every 2 with a B\
+	
+\f3\fs26 \cf1 \cb5 \expnd0\expndtw0\kerning0
+echo '1121' | tr '12' 'AB'
+\fs20 \cf0 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 \
+AABA
+\f2\fs24 \CocoaLigature1 \
+\
+	We can also use character sets\
+	
+\f3\fs26 \cf1 \cb5 \expnd0\expndtw0\kerning0
+echo '221213'|tr '1-3' 'a-c'
+\fs20 \cf0 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 \
+bbabac
+\f2\fs24 \CocoaLigature1 \
+\
+For more, including -s (to suppress a sequence of repeated character to one occurrence), -d (to delete), -c (to get the complement of, i.e. not\'97 e.g. tr -cd '[:alnum:]' to dlelete all non-alpha-numeric characters) see\
+	https://en.wikipedia.org/wiki/Tr_(Unix)\
+\
+	We can use character classes\
+	
+\f3\fs26 \cf1 \cb5 \expnd0\expndtw0\kerning0
+tr '[:upper:]' '[:lower:]' < people.txt
+\fs20 \cf0 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 \
+kevin\
+lynda\
+bob\
+...\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f2\fs24 \cf0 \CocoaLigature1 Note that all upper case characters have been turned into lower case.\
+\
+	The following will read a set of comma-separated-values from us_presidents.csv, then replace all the commas with tabs, then output the result to a new file called us_presidents.tsv\
+	
+\f3\fs26 \cf1 \cb5 \expnd0\expndtw0\kerning0
+tr ',' '\\t' < us_presidents.csv > us_presidents.tsv
+\f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
 \
 		
-\f0\fs26 \cf10 m
+\f0\fs26 \cf10 8.7 tr- Translating characters
+\f2\fs24 \cf0 \
+\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\b\fs34 \cf0 Deleting and 'squeezing with tr
+\b0\fs24 \
+	-c (complement) is the negation operator and is used in combination with -d option. See examples in the next table.\
+\
+	{{\NeXTGraphic Pasted Graphic 4.tiff \width7540 \height3340
+}¬}\
+	{{\NeXTGraphic Pasted Graphic 5.tiff \width9560 \height4180
+}¬}\
+	  {{\NeXTGraphic Pasted Graphic 6.tiff \width7260 \height3120
+}¬}\
+	\
+		
+\f0\fs26 \cf10 8.8 tr- Deleting and squeezing characters
 \f2\fs24 \cf0 \
 \
 \
 
-\b\fs34 T
+\b\fs34 sed the Stream Editor
 \b0\fs24 \
-	c\
+	sed is more powerful than tr.\
+\
+	The syntax for search and replacement is\
+\
+	
+\f4\fs26 \cf8 \cb9 \expnd0\expndtw0\kerning0
+sed 's/
+\f5\i search_string
+\f4\i0 /
+\f5\i replacement_string
+\f4\i0 /'
+\f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
+\
+	
+\f3\fs26 \cf1 \cb5 \expnd0\expndtw0\kerning0
+echo 'upstream' | sed 's/up/down/'
+\fs20 \cf0 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 \
+downstream\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f2\fs24 \cf0 \CocoaLigature1 \
+	By default, sed replaces only the first match\
+	
+\f3\fs26 \cf1 \cb5 \expnd0\expndtw0\kerning0
+echo 'upstream and upward' | sed 's/up/down/'
+\fs20 \cf0 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 \
+downstream and upward
+\f2\fs24 \CocoaLigature1 \
+\
+	To replace all the occurrences, add a g (global) to the end of the expression passed to sed\
+	
+\f3\fs26 \cf1 \cb5 \expnd0\expndtw0\kerning0
+echo 'upstream and upward' | sed 's/up/down/g'
+\fs20 \cf0 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 \
+downstream and downward
+\f2\fs24 \CocoaLigature1 \
+\
+	The delimiters (forward slash in the above examples) can be replaced with other characters. sed looks at the first character that comes after the first s (for substitute) and uses it as the delimiter.\
+\
+	
+\f3\fs26 \cf1 \cb5 \expnd0\expndtw0\kerning0
+echo 'upstream' | sed 's:up:down:'
+\fs20 \cf0 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 \
+downstream
+\f2\fs24 \CocoaLigature1 \
+\
+	To read from a file as input stream, simply pass the file as a second parameter after the expression\
+	
+\f3\fs26 \cf1 \cb5 \expnd0\expndtw0\kerning0
+sed 's/pear/golabi/' fruit.txt
+\f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
+	works the same as\
+	
+\f3\fs26 \cf1 \cb5 \expnd0\expndtw0\kerning0
+sed 's/pear/golabi/' < fruit.txt
+\fs20 \cf0 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 \
+\
+
+\f2\fs24 \CocoaLigature1 	To output to a file, you must pipe\
+	
+\f3\fs26 \cf1 \cb5 \expnd0\expndtw0\kerning0
+sed 's/pear/golabi/' fruit.txt > golabi.txt
+\f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
+\
+	Note: Each line is treated as a stream. This means that the 
+\i first occurrence
+\i0  of 'pear' in 
+\i each
+\i0  line is replace. If there are other occurrences in a line, they will not be replaced unless if the g modifier is included at the end of the expression, as in\
+	
+\f3\fs26 \cf1 \cb5 \expnd0\expndtw0\kerning0
+sed 's/pear/golabi/g' fruit.txt
+\fs20 \cf0 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 \
+
+\f2\fs24 \CocoaLigature1 \
+	To search for more than one string, prefix the expressions with -e\
+	
+\f3\fs26 \cf1 \cb5 \expnd0\expndtw0\kerning0
+echo 'Duirng daytime we have sunlight' | sed -e 's/day/night/' -e 's/sun/moon/'
+\fs20 \cf0 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 \
+Duirng nighttime we have moonlight
+\f2\fs24 \CocoaLigature1 \
+\
 \
 		
-\f0\fs26 \cf10 m
+\f0\fs26 \cf10 8.9 sed- Stream editor
+\f2\fs24 \cf0 \
+\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\b\fs34 \cf0 sed and Regular Expressions
+\b0\fs24 \
+	Use regular expressions with sed\
+	
+\f3\fs26 \cf1 \cb5 \expnd0\expndtw0\kerning0
+echo 'Who needs vowels?' | sed 's/[aeiou]/./g'
+\fs20 \cf0 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 \
+Wh. n..ds v.w.ls?
+\f2\fs24 \CocoaLigature1 \
+\
+	
+\b Examples:
+\b0 \
+\
+	Indent every line two spaces\
+	
+\f3\fs26 \cf1 \cb5 \expnd0\expndtw0\kerning0
+sed 's/^/  /g' fruit.txt
+\fs20 \cf0 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 \
+  pear\
+  raspberry\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f2\fs24 \cf0 \CocoaLigature1 ...\
+Note the indentation in above output.\
+\
+	sed does not understand \\t as 'tab character' (grep does). So we have to use the following sequence:\
+	ctrl v <tab>\
+	Note that this shows only as a whitespace in the copy-paste\
+	
+\f3\fs26 \cf1 \cb5 \expnd0\expndtw0\kerning0
+sed 's/^/       /' fruit.txt
+\fs20 \cf0 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 \
+	pear\
+	raspberry
+\f2\fs24 \CocoaLigature1 \
+	...\
+Note the indentation by a tab in above output.\
+\
+	You can use the ctrl v sequence with some other characters as well such as \
+	
+\f6\fs26 \cf8 \cb9 \expnd0\expndtw0\kerning0
+\uc0\u8963 
+\f4  v 
+\f6 \uc0\u9099 
+\f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
+	and \
+	
+\f6\fs26 \cf8 \cb9 \expnd0\expndtw0\kerning0
+\uc0\u8963 
+\f4  v 
+\f6 \uc0\u8617 
+\f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
+\
+	Remove html tags and their contents from homepage.htm\
+	
+\f3\fs26 \cf1 \cb5 \expnd0\expndtw0\kerning0
+sed -E 's/<[^<>]+>//g' homepage.html
+\f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
+	Note: As each line is treated as a new stream, if the opening < and closing > are on two different lines the above will not work. So, for example\
+	 
+\f3\fs20 \CocoaLigature0 <div id="content">
+\f2\fs24 \CocoaLigature1  \
+was correctly removed, but \
+	
+\f3\fs20 \CocoaLigature0 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"\
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+\f2\fs24 \CocoaLigature1 \
+was not.\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\b\fs34 \cf0 Back references
+\b0\fs24 \
+	Put a regex in round brackets, then refer to it as \\1. Up to 9 back references are allowed.\
+	
+\f3\fs26 \cf1 \cb5 \expnd0\expndtw0\kerning0
+echo daytime | sed -E 's/(...)/\\1 or night/'
+\fs20 \cf0 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 \
+day or nighttime
+\f2\fs24 \CocoaLigature1 \
+\
+	
+\f3\fs26 \cf1 \cb5 \expnd0\expndtw0\kerning0
+echo "Kamran Layegh" | sed -E 's/([[:alpha:]]+) ([[:alpha:]]+)/\\2, \\1/'
+\fs20 \cf0 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 \
+Layegh, Kamran
+\f2\fs24 \CocoaLigature1 \
+\
+		
+\f0\fs26 \cf10 8.10 sed- Regular expressions and back-references
 \f2\fs24 \cf0 \
 \
 \
 
-\b\fs34 T
+\b\fs34 cut
 \b0\fs24 \
-	c\
+	Can cut characters, bytes, or fields.\
 \
 		
-\f0\fs26 \cf10 m
-\f2\fs24 \cf0 \
-\
-\
-
-\b\fs34 T
-\b0\fs24 \
-	c\
-\
-		
-\f0\fs26 \cf10 m
-\f2\fs24 \cf0 \
-\
-\
-
-\b\fs34 T
-\b0\fs24 \
-	c\
-\
-		
-\f0\fs26 \cf10 m
+\f0\fs26 \cf10 8.11 cut- Cutting select text portions
 \f2\fs24 \cf0 \
 \
 \
@@ -900,7 +1134,7 @@ In 3, we escape the + so it is not interpreted as a literal + sign, but as meani
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 
 \f1\b\fs72 \cf3 Title \cf4 Light \cf13 Blue\cf3  \cf14 Orange\cf3  \cf15 Grey
-\f5\b0 \cf2 \
+\f7\b0 \cf2 \
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 
 \f0\fs24 \cf2 \
