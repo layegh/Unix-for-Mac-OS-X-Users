@@ -1,14 +1,13 @@
 {\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf110
 {\fonttbl\f0\fnil\fcharset0 HelveticaNeue;\f1\fnil\fcharset0 ArnoPro-Caption;\f2\fswiss\fcharset0 Helvetica;
 \f3\fnil\fcharset0 Monaco;\f4\fnil\fcharset0 Consolas;\f5\fnil\fcharset0 Consolas-Italic;
-\f6\fnil\fcharset0 LucidaGrande;\f7\fnil\fcharset0 ArnoPro-Regular;}
+\f6\fnil\fcharset0 LucidaGrande;}
 {\colortbl;\red255\green255\blue255;\red36\green36\blue36;\red181\green16\blue26;\red0\green139\blue208;
 \red38\green38\blue38;\red232\green14\blue8;\red40\green108\blue185;\red26\green26\blue26;\red234\green234\blue234;
-\red190\green190\blue190;\red0\green0\blue163;\red178\green178\blue178;\red9\green109\blue238;\red255\green87\blue0;
-\red69\green69\blue69;\red248\green255\blue82;\red103\green34\blue1;\red28\green198\blue9;\red252\green143\blue135;
+\red190\green190\blue190;\red0\green0\blue163;\red178\green178\blue178;\red248\green255\blue82;\red252\green143\blue135;
 \red249\green205\blue143;\red248\green238\blue138;\red212\green233\blue150;\red167\green208\blue255;\red224\green190\blue234;
 \red205\green205\blue205;}
-\paperw12240\paperh15840\vieww13200\viewh13080\viewkind0
+\paperw12240\paperh15840\vieww12360\viewh13080\viewkind0
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 
 \f0\fs24 \cf2 \
@@ -489,14 +488,12 @@ export GREP_OPTIONS="--color=auto"
 
 \f2\fs24 \cf0 \
 Quickly clear screen and lose output history\
-\
 	
 \f3\fs26 \cf1 \cb5 \expnd0\expndtw0\kerning0
 Command k
 \f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
 \
 Quick look inside a text file?\
-\
 	
 \f3\fs26 \cf1 \cb5 \expnd0\expndtw0\kerning0
 cat fruit.txt
@@ -512,46 +509,54 @@ cat fruit.txt
 \b0 xpression 
 \b p
 \b0 rint)\
-\
 	
 \f3\fs26 \cf1 \cb5 \expnd0\expndtw0\kerning0
 grep apple fruit.txt
 \f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
 \
 Case insensitive -i:\
-\
 	
 \f3\fs26 \cf1 \cb5 \expnd0\expndtw0\kerning0
 grep -i apple fruit.txt
 \f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
 \
 Match only whole words -w, i.e. do not match pineapple\
-\
 	
 \f3\fs26 \cf1 \cb5 \expnd0\expndtw0\kerning0
 grep -w apple fruit.txt
 \f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
 \
 Inversion option -v, i.e. match the lines that do not have apple in them. Will match many lines.\
-\
 	
 \f3\fs26 \cf1 \cb5 \expnd0\expndtw0\kerning0
 grep -v apple fruit.txt
 \f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
 \
 Line number option -n, gives line numbers in front of the matching lines\
-\
-  
+	
 \f3\fs26 \cf1 \cb5 \expnd0\expndtw0\kerning0
 grep -n apple fruit.txt
 \f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
 \
 The count option -c, returns just a count integer\
-\
 	
 \f3\fs26 \cf1 \cb5 \expnd0\expndtw0\kerning0
 grep -c apple fruit.txt
 \f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
+\
+Find 'apple' in any file whose filename ends with fruit.txt\
+	
+\f3\fs26 \cf1 \cb5 \expnd0\expndtw0\kerning0
+grep apple *fruit.txt
+\f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
+\
+Find 'apple' in any file whose filename ends with fruit.txt, but show me only the filenems\
+	
+\f3\fs26 \cf1 \cb5 \expnd0\expndtw0\kerning0
+grep -l apple *fruit.txt
+\f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
+\
+\
 \
 		
 \f0\fs26 \cf10 8.1 grep- Searching for matching expressions
@@ -1181,6 +1186,11 @@ c
 \f4\fs26 \cf8 \cb9 \expnd0\expndtw0\kerning0
 a
 \f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0  for appended.\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\b \cf0 deleted
+\b0 \
 	So, in the above output, 
 \f4\fs26 \cf8 \cb9 \expnd0\expndtw0\kerning0
 2d1
@@ -1208,10 +1218,338 @@ line 2:  delete delete delete delete delete delete
 \i "was deleted"
 \i0 \
 \
+
+\b changed
+\b0 \
+	Next, we have \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f3\fs20 \cf0 \CocoaLigature0 6c5\
+< line 6:  change change change change change change\
+---\
+> line 6:  change        change        change       \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f2\fs24 \cf0 \CocoaLigature1 	The 
+\f3\fs20 \CocoaLigature0 6c5
+\f2\fs24 \CocoaLigature1  says 
+\i "Look at line 6 of the left file and line 5 of the right file and see a change"
+\i0 \
+	The three dashes separate the line 6 of the left file as it is now and line 6 of the right file.\
 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\b \cf0 appended
+\b0 \
+\
+	A similar pattern is used on the last two lines\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f3\fs20 \cf0 \CocoaLigature0 11a11\
+> line 12: append append append append append append
+\f2\fs24 \CocoaLigature1 \
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\b \cf0 diff options
+\b0 \
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Pasted Graphic 7.tiff \width8320 \height3980
+}¬}\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
 \
 		
 \f0\fs26 \cf10 8.12 diff- Comparing files
+\f2\fs24 \cf0 \
+\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\b\fs34 \cf0 diff Controlling its output
+\b0\fs24 \
+	\
+	{{\NeXTGraphic Pasted Graphic 8.tiff \width9840 \height3900
+}¬}\
+	The 
+\f4\fs26 \cf8 \cb9 \expnd0\expndtw0\kerning0
+-c
+\f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0  option makes diff to output all the contents of both files with 3 coded markings: - for deleted; + for appended; ! for changed. The - can only appear in the left file. The + can only appear in the right file. The ! must appear in pairs in both files.\
+\
+	The 
+\f4\fs26 \cf8 \cb9 \expnd0\expndtw0\kerning0
+-y
+\f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0  option does the same thing, but puts the output side by side, rather than one above the other.	\
+	The 
+\f4\fs26 \cf8 \cb9 \expnd0\expndtw0\kerning0
+-u
+\f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0  option merges the two files and shows which lines will be deleted and which will be appended. A change is of course a deletion plus an insertion, so a change will appear as a - and a + on the same line number:\
+	
+\f3\fs26 \cf1 \cb5 \expnd0\expndtw0\kerning0
+diff -u original_file.txt revised_file.txt
+\f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f3\fs20 \cf0 \CocoaLigature0 ...\
+-line 6:  change change change change change change\
++line 6:  change        change        change       \
+...\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f2\fs24 \cf0 \CocoaLigature1 \
+	The 
+\f4\fs26 \cf8 \cb9 \expnd0\expndtw0\kerning0
+-q
+\f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0  option simply tells us if the files differ or not.\
+	If the files are identical, the 
+\f4\fs26 \cf8 \cb9 \expnd0\expndtw0\kerning0
+-q
+\f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0  option will fail silently. To force it to confirm that the files are identical use the 
+\f4\fs26 \cf8 \cb9 \expnd0\expndtw0\kerning0
+-qs
+\f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0  option.\
+\
+	We can pipe the output to TextMate\
+	
+\f3\fs26 \cf1 \cb5 \expnd0\expndtw0\kerning0
+diff -u original_file.txt revised_file.txt | mate
+\f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
+	{{\NeXTGraphic Pasted Graphic 9.tiff \width11980 \height9320
+}¬}\
+	For a count of changes, pipe to 
+\f4\fs26 \cf8 \cb9 \expnd0\expndtw0\kerning0
+diffstat
+\f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 , noting that 
+\f4\fs26 \cf8 \cb9 \expnd0\expndtw0\kerning0
+-u
+\f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0  option must be used for 
+\f4\fs26 \cf8 \cb9 \expnd0\expndtw0\kerning0
+diffstat
+\f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0  to work\
+	
+\f3\fs26 \cf1 \cb5 \expnd0\expndtw0\kerning0
+diff -u original_file.txt revised_file.txt | diffstat
+\fs20 \cf0 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 \
+ revised_file.txt |    4 ++--\
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+\f2\fs24 \CocoaLigature1 \
+	Note that in
+\f3\fs20 \CocoaLigature0  4 ++--
+\f2\fs24 \CocoaLigature1  the 4 means four changes, the 
+\f3\fs20 \CocoaLigature0 ++
+\f2\fs24 \CocoaLigature1  means 2 insertions and the 
+\f3\fs20 \CocoaLigature0 --
+\f2\fs24 \CocoaLigature1  means two deletions. This is because a change is a deletion plus an insertion\
+\
+		
+\f0\fs26 \cf10 8.13 diff- Alternative formats
+\f2\fs24 \cf0 \
+\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\b\fs34 \cf0 xargs
+\b0\fs24 \
+	xargs executes arguments.\
+	
+\b I
+\b0 t parses an input stream into items. Then it loops through each item and passes them to a command. The command to which the items are passed is called the utility command. The exact manner in which the items are passed can be controlled by the 
+\f4\fs26 \cf8 \cb9 \expnd0\expndtw0\kerning0
+-n
+\f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0  option. 
+\f4\fs26 \cf8 \cb9 \expnd0\expndtw0\kerning0
+-n1
+\f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0  will cause the the items to be passed 1-at-a-time. 
+\f4\fs26 \cf8 \cb9 \expnd0\expndtw0\kerning0
+-n2
+\f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0  will cause the items to be passed 2-at-a-time, and so on. See examples below for illustration.\
+\
+	
+\f3\fs26 \cf1 \cb5 \expnd0\expndtw0\kerning0
+echo lorem_ipsum.txt | xargs -t  wc
+\fs20 \cf0 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 \
+wc lorem_ipsum.txt\
+     523    5289   36232 lorem_ipsum.txt
+\f2\fs24 \CocoaLigature1 	\
+	The -t option makes xargs to print out what it is doing \'97 
+\f3\fs20 \CocoaLigature0 wc lorem_ipsum.txt 
+\f2\fs24 \CocoaLigature1 \'97 useful for debugging the command you are building.\
+\
+	As an example of looping (we pass the -t for illustration only)\
+	
+\f3\fs26 \cf1 \cb5 \expnd0\expndtw0\kerning0
+echo lorem_ipsum.txt us_presidents.csv | xargs -t wc
+\fs20 \cf0 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 \
+wc lorem_ipsum.txt us_presidents.csv\
+     523    5289   36232 lorem_ipsum.txt\
+      45     121    4309 us_presidents.csv\
+     568    5410   40541 total
+\f2\fs24 \CocoaLigature1 \
+\
+	To see how the -n option works, see the following three examples. In the second one with -n2, for example, xargs is outputting 2 items at a time.\
+	
+\f3\fs26 \cf1 \cb5 \expnd0\expndtw0\kerning0
+echo 1 2 3 4 | xargs -n1
+\fs20 \cf0 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 \
+1\
+2\
+3\
+4\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f2\fs24 \cf0 \CocoaLigature1 \
+	
+\f3\fs26 \cf1 \cb5 \expnd0\expndtw0\kerning0
+echo 1 2 3 4 | xargs -n2
+\fs20 \cf0 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 \
+1 2\
+3 4\
+
+\f2\fs24 \CocoaLigature1 \
+	
+\f3\fs26 \cf1 \cb5 \expnd0\expndtw0\kerning0
+echo 1 2 3 4 | xargs -n3
+\fs20 \cf0 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 \
+1 2 3\
+4\
+
+\f2\fs24 \CocoaLigature1 \
+	The 
+\f4\fs26 \cf8 \cb9 \expnd0\expndtw0\kerning0
+-L
+\f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0  option\
+	He is not very clear what this option does. See man pages for info. Roughly, it looks like:\
+	the
+\f4\fs26 \cf8 \cb9 \expnd0\expndtw0\kerning0
+ -n2
+\f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0  option, for example, builds a command by outputting 2 items at a time, tokenised by 
+\i space
+\i0 , whereas 
+\f4\fs26 \cf8 \cb9 \expnd0\expndtw0\kerning0
+-L2
+\f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0  option does the same but tokenised by 
+\i line break
+\i0 , i.e. 2 lines at a time rather than 2 words at a time. \
+	\
+	The -I option allows you to use a place holder, in the following example \{\}\
+	
+\f3\fs26 \cf1 \cb5 \expnd0\expndtw0\kerning0
+cat fruit.txt | xargs -I \{\} echo "buy more \{\}"
+\fs20 \cf0 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 \
+buy more pear\
+buy more raspberry\
+
+\f2\fs24 \CocoaLigature1 ...\
+\
+	
+\b Problem with filenames that contain spaces
+\b0 \
+	
+\f3\fs26 \cf1 \cb5 \expnd0\expndtw0\kerning0
+ls ~/library | grep "^A.*"
+\fs20 \cf0 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf11 \cb12 Accounts\cf0 \cb1 \
+\cf11 \cb12 Acrobat User Data\cf0 \cb1 \
+\cf11 \cb12 Address Book Plug-Ins\cf0 \cb1 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f2\fs24 \cf0 \CocoaLigature1 ...	\
+	Note the spaces. Now suppose we want to do something which each of these filenames using xargs.\
+	
+\f3\fs26 \cf1 \cb5 \expnd0\expndtw0\kerning0
+ls ~/library | grep "^A.*" | xargs -n1
+\fs20 \cf0 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 \
+Accounts\
+Acrobat\
+User\
+Data\
+Address
+\f2\fs24 \CocoaLigature1 \
+	Note that "Acrobat User Data" has broken up and become useless for processing.\
+	Solution: Use the 
+\f3\fs26 \cf1 \cb5 \expnd0\expndtw0\kerning0
+-0
+\f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0  option\
+	
+\f3\fs26 \cf1 \cb5 \expnd0\expndtw0\kerning0
+ls ~/library | grep "^A.*" | xargs -0 -n1
+\fs20 \cf0 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 \
+Accounts\
+Acrobat User Data\
+
+\f2\fs24 \CocoaLigature1 ...\
+\
+		
+\f0\fs26 \cf10 8.14 xargs- Passing argument lists to commands
+\f2\fs24 \cf0 \
+\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\b\fs34 \cf0 xargs some examples of usage
+\b0\fs24 \
+	
+\f0\fs26 \cf2 1. 
+\f2\fs24 \cf0 Suppose we have a list of filenames in file_manifest.txt.\
+	
+\f3\fs26 \cf1 \cb5 \expnd0\expndtw0\kerning0
+cat file_manifest.txt
+\fs20 \cf0 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 \
+people.txt\
+sorted_fruit.txt\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f2\fs24 \cf0 \CocoaLigature1 ...\
+\
+	We may want to do various things with their contents, but for the sake of this example let us say we want to concatenate them\
+	
+\f3\fs26 \cf1 \cb5 \expnd0\expndtw0\kerning0
+cat file_manifest.txt | xargs cat
+\fs20 \cf0 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 \
+Kevin\
+Lynda\
+
+\f2\fs24 \CocoaLigature1 ...\
+\
+	Pipe to less to be able to navigate the result more easily\
+	
+\f3\fs26 \cf1 \cb5 \expnd0\expndtw0\kerning0
+cat file_manifest.txt | xargs cat | less
+\f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
+	\
+	2. Suppose we have a list of people's names,\
+	
+\f3\fs26 \cf1 \cb5 \expnd0\expndtw0\kerning0
+cat people.txt
+\fs20 \cf0 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 \
+Kevin\
+Lynda
+\f2\fs24 \CocoaLigature1 \
+...\
+	and we would like to create a directory for each name\
+	
+\f3\fs26 \cf1 \cb5 \expnd0\expndtw0\kerning0
+cat people.txt | uniq | xargs -I \{\} mkdir -p ./Students/\{\}
+\f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
+	We are filtering through uniq in case some names are repeated.\
+	{{\NeXTGraphic Pasted Graphic 10.tiff \width4900 \height3020
+}¬}\
+\
+	3. Change permissions on all the files inside a given directory\
+	
+\f3\fs26 \cf1 \cb5 \expnd0\expndtw0\kerning0
+find test1/ -type f -print0 | xargs -0 chmod 755
+\f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
+	Says: find in test1 folder all files of type f (file) and print 0 (tag spaces with nul? This will be consumed by the -0 option to  xargs to overcome the problem with spaces in filenames). Pipe all of this into xargs and the utility command is chmod 755.\
+\
+\
+\
+\
+		
+\f0\fs26 \cf10 8.15 xargs- Usage examples
 \f2\fs24 \cf0 \
 \
 \
@@ -1246,54 +1584,35 @@ line 2:  delete delete delete delete delete delete
 \f2\fs24 \cf0 \
 \
 \
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 
-\f0 \cf2 \
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
-
-\f1\b\fs72 \cf3 Title \cf4 Light \cf13 Blue\cf3  \cf14 Orange\cf3  \cf15 Grey
-\f7\b0 \cf2 \
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
-
-\f0\fs24 \cf2 \
+\b\fs34 T
+\b0\fs24 \
+	c\
 \
-\pard\pardeftab720\partightenfactor0
-
-\f2\b\fs34 \cf0 Heading
-\f0\b0\fs26 \cf2 \
-
-\f2\b\fs34 \cf3 Heading
-\f0\b0\fs26 \cf2 \
-\pard\pardeftab720\partightenfactor0
-
-\f2\b\fs34 \cf7 Heading
-\f0\b0\fs26 \cf2 \
-\pard\pardeftab720\partightenfactor0
-
-\f2\b\fs34 \cf13 Heading
-\f0\b0\fs26 \cf2 \
-
-\f2\b\fs34 \cf14 Heading
-\f0\b0\fs26 \cf2 \
-
-\f2\b\fs34 \cf15 Heading
-\f0\b0\fs26 \cf2 \
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
-
-\b \cf2 \
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
-\cf15 Subhead\
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
-
-\b0 \cf2 \
-body\
+		
+\f0\fs26 \cf10 m
+\f2\fs24 \cf0 \
 \
+\
+
+\b\fs34 T
+\b0\fs24 \
+	c\
+\
+		
+\f0\fs26 \cf10 m
+\f2\fs24 \cf0 \
+\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs26 \cf2 \
 \'95 Bullet point\
 \
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
 
 \f3 \cf1 \cb5 \expnd0\expndtw0\kerning0
-git config --global user.name "\cf16 IMPORTANT CODE\cf1 "
+git config --global user.name "\cf13 IMPORTANT CODE\cf1 "
 \f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 
@@ -1308,28 +1627,14 @@ code e.g xcode-select --install
 file name
 \f0\fs26 \
 \
- 
-\i \cf17  // Make the current directory a GIT repo
-\i0 \cf2 \
 \
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 \cf10 Unobtrusively fade into the background\cf2 \
 \
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\pardirnatural\partightenfactor0
-
-\b \cf18 KL...
-\b0 \cf2 \
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
-\cf2 \
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\pardirnatural\partightenfactor0
-
-\b \cf18 ...
-\b0 \cf2 \
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
-\cf2 \
+\
 \pard\pardeftab720\partightenfactor0
 
-\f2\fs24 \cf0        \cb19      \cb1    \cb20      \cb1    \cb21      \cb1    \cb22      \cb1    \cb23      \cb1    \cb24      \cb1    \cb25      \cb1  \
+\f2\fs24 \cf0        \cb14      \cb1    \cb15      \cb1    \cb16      \cb1    \cb17      \cb1    \cb18      \cb1    \cb19      \cb1    \cb20      \cb1  \
 \
 \
 \
