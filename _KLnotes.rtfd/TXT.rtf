@@ -248,27 +248,31 @@ find
   Find in 
 \f4\fs28 \cf2 ~/Documents
 \f0\fs26 \cf0  any file that has name 
-\f4\fs28 \cf2 someinage.jpg
+\f4\fs28 \cf2 someimage.jpg
 \f0\fs26 \cf0 \
-  Note: 
-\f3 \cf1 \cb5 \expnd0\expndtw0\kerning0
--name "someinage.jpg"
-\f0 \cf0 \cb1 \kerning1\expnd0\expndtw0  is the expression\'97the hyphen in front of 'name' gives the impression it is an option, but it is not.\
   
 \f3 \cf1 \cb5 \expnd0\expndtw0\kerning0
-Find ~/Documents -name "someinage.jpg"
+Find ~/Documents -name "someimage.jpg"
 \f0 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
+ \
+  Note: 
+\f3 \cf1 \cb5 \expnd0\expndtw0\kerning0
+-name "someimage.jpg"
+\f0 \cf0 \cb1 \kerning1\expnd0\expndtw0  is the expression\'97the hyphen in front of 'name' gives the impression it is an option, but it is not.\
+\
   Wildcard characters: * (zero or more characters), ? (any one character), [a-c] (a or b or c)\
-  fine in current directory all files whose name is  *.plist and whose full path does not contain *QuickTime* (
+\
+  find in current directory all files whose name is  *.plist and whose full path does not contain *QuickTime* (
 \i anythig
 \i0\b QuickTime
 \i\b0 anything
 \i0 )\
   
 \f3 \cf1 \cb5 \expnd0\expndtw0\kerning0
-fine . -name *.plist -and -not -path *QuickTime*
+find . -name *.plist -and -not -path *QuickTime*
 \f0 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
-  We can use 
+ \
+ We can use 
 \f3 \cf1 \cb5 \expnd0\expndtw0\kerning0
 -and
 \f0 \cf0 \cb1 \kerning1\expnd0\expndtw0 , 
@@ -278,9 +282,10 @@ fine . -name *.plist -and -not -path *QuickTime*
 \f3 \cf1 \cb5 \expnd0\expndtw0\kerning0
 -not
 \f0 \cf0 \cb1 \kerning1\expnd0\expndtw0 , it the usual sense. Can be used repeatedly. For example\
+\
   
 \f3 \cf1 \cb5 \expnd0\expndtw0\kerning0
-fine . -name *.plist -and -not -path *QuickTime* -and -not -path *Preferences*
+find . -name *.plist -and -not -path *QuickTime* -and -not -path *Preferences*
 \f0 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
   will also drop any files whose full paths contains Preferences.\
 \
@@ -641,12 +646,14 @@ put these lines in
 export GREP_COLOR="34;47"\
 export GREP_OPTIONS="--color=auto"\
 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
 
 \f2\fs24 \cf0 Then make bash use 
 \f4\fs28 \cf2 .bashrc
 \f2\fs24 \cf0  by putting these lines in 
 \f4\fs28 \cf2 .bash_profile
 \f2\fs24 \cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
 
 \f4\fs28 \cf2 \
 if [ -f ~/.bashrc ]; then\
@@ -665,6 +672,7 @@ foreground colors     background colors     attributes\
 35      magenta       45        magenta     8   nondisplayed (invisible)\
 36      cyan          46        cyan\
 37      white         47        white\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
 
 \f2\fs24 \cf0 \
 		
@@ -1489,7 +1497,7 @@ Acrobat User Data\
 \
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
 
-\b\fs34 \cf0 xargs some examples of usage
+\b\fs34 \cf0 xargs some examples
 \b0\fs24 \
 	
 \f0\fs26 \cf2 1. 
@@ -1545,8 +1553,18 @@ find test1/ -type f -print0 | xargs -0 chmod 755
 \f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
 	Says: find in test1 folder all files of type f (file) and print 0 (tag spaces with nul? This will be consumed by the -0 option to  xargs to overcome the problem with spaces in filenames). Pipe all of this into xargs and the utility command is chmod 755.\
 \
-\
-\
+	4. Make a copy of al the files with name "new*.txt" \
+	
+\f3\fs26 \cf1 \cb5 \expnd0\expndtw0\kerning0
+find . -name "new*.txt" -print0 | xargs -0 -I \{\} cp \{\} ./backup/\{\}.backup
+\f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
+	Says: Find all files wit name 
+\f3\fs20 \CocoaLigature0 "new*.txt"
+\f2\fs24 \CocoaLigature1  and 
+\f3\fs20 \CocoaLigature0 print0
+\f2\fs24 \CocoaLigature1  them i.e. print appending null at the end of each filename, then pipe to xargs using the null terminator (-0) letting me define a placeholder (-I) which I do using \{\}. xargs should use cp (copy) as utility command. We pass to the utility command 
+\f3\fs20 \CocoaLigature0 \{\} ./backup/\{\}.backup
+\f2\fs24 \CocoaLigature1  as argument.\
 \
 		
 \f0\fs26 \cf10 8.15 xargs- Usage examples
