@@ -1,12 +1,14 @@
 {\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf110
 {\fonttbl\f0\fnil\fcharset0 HelveticaNeue;\f1\fnil\fcharset0 ArnoPro-Caption;\f2\fswiss\fcharset0 Helvetica;
 \f3\fnil\fcharset0 Monaco;\f4\fnil\fcharset0 LucidaGrande;\f5\fnil\fcharset0 Consolas;
-\f6\fnil\fcharset0 Consolas-Italic;}
+\f6\fmodern\fcharset0 Courier;\f7\fnil\fcharset0 Consolas-Italic;}
 {\colortbl;\red255\green255\blue255;\red36\green36\blue36;\red181\green16\blue26;\red0\green139\blue208;
 \red38\green38\blue38;\red232\green14\blue8;\red40\green108\blue185;\red241\green242\blue156;\red254\green10\blue232;
-\red26\green26\blue26;\red234\green234\blue234;\red190\green190\blue190;\red0\green0\blue163;\red178\green178\blue178;
-\red248\green255\blue82;\red252\green143\blue135;\red249\green205\blue143;\red248\green238\blue138;\red212\green233\blue150;
-\red167\green208\blue255;\red224\green190\blue234;\red205\green205\blue205;}
+\red240\green240\blue240;\red26\green26\blue26;\red234\green234\blue234;\red190\green190\blue190;\red0\green0\blue163;
+\red178\green178\blue178;\red248\green255\blue82;\red252\green143\blue135;\red249\green205\blue143;\red248\green238\blue138;
+\red212\green233\blue150;\red167\green208\blue255;\red224\green190\blue234;\red205\green205\blue205;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid1}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}}
 \paperw12240\paperh15840\vieww12420\viewh13080\viewkind0
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 
@@ -751,6 +753,10 @@ ln -s myFile.txt mySymLink
 \f0\b0\fs26 \
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 \cf0 \
+We use 
+\f3 \cf8 \cb0 \CocoaLigature0 find
+\f0 \cf0 \cb1 \CocoaLigature1  to search for files.\
+\
   Syntax: 
 \f3 \cf1 \cb5 \expnd0\expndtw0\kerning0
 find
@@ -762,10 +768,14 @@ find
 \
   
 \i path
-\i0 : where to look\
+\i0 : 
+\i where
+\i0  to look\
   
 \i expression
-\i0 : what to look for\
+\i0 : 
+\i what
+\i0  to look for\
 \
   Find in 
 \f5\fs28 \cf2 ~/Documents
@@ -782,13 +792,26 @@ Find ~/Documents -name "someimage.jpg"
 -name "someimage.jpg"
 \f0 \cf0 \cb1 \kerning1\expnd0\expndtw0  is the expression\'97the hyphen in front of 'name' gives the impression it is an option, but it is not.\
 \
-  Wildcard characters: * (zero or more characters), ? (any one character), [a-c] (a or b or c)\
+  Wildcard characters:\
+	
+\f3 \cf8 \cb0 \CocoaLigature0 * 
+\f0 \cf0 \cb1 \CocoaLigature1  \
+	zero or more characters (called the 'glob')\
+	
+\f3 \cf8 \cb0 \CocoaLigature0 ?
+\f0 \cf0 \cb1 \CocoaLigature1  \
+	any one character\
+	
+\f3 \cf8 \cb0 \CocoaLigature0  [a-c] 
+\f0 \cf0 \cb1 \CocoaLigature1 \
+	a or b or c\
 \
   find in current directory all files whose name is  *.plist and whose full path does not contain *QuickTime* (
 \i anythig
 \i0\b QuickTime
 \i\b0 anything
 \i0 )\
+\
   
 \f3 \cf1 \cb5 \expnd0\expndtw0\kerning0
 find . -name *.plist -and -not -path *QuickTime*
@@ -834,6 +857,406 @@ find . -type f -size -41k -iname '*.pdf' -exec mv \{\} ./small \\;
 \f0 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
 \
 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f1\b\fs44 \cf3 4. Ownership and Permissions
+\f0\b0\fs26 \cf0 \
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f2\b\fs34 \cf0 Who am I?\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\b0\fs26 \cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 	
+\f3 \cf8 \cb0 \CocoaLigature0 whoami
+\f0 \cf0 \cb1 \CocoaLigature1 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 	
+\f3 \cf8 \cb0 \CocoaLigature0 kamranlayegh
+\f0 \cf0 \cb1 \CocoaLigature1 \
+\
+	
+\f3 \cf8 \cb0 \CocoaLigature0 echo $HOME
+\f0 \cf0 \cb1 \CocoaLigature1 \
+	
+\f3 \cf8 \cb0 \CocoaLigature0 /Users/kamranlayegh
+\f0 \cf0 \cb1 \CocoaLigature1 \
+	\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f2\b\fs34 \cf0 Unix groups\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\b0\fs26 \cf0 \
+A group is a set of users. Every user must belong to at least one group.\
+\
+To find out which groups you belong to, usr the groups command\
+\
+	
+\f3 \cf8 \cb0 \CocoaLigature0 groups
+\f0 \cf0 \cb1 \CocoaLigature1 \
+	
+\f3 \cf8 \cb0 \CocoaLigature0 staff com.apple.sharepoint.group.1
+\f0 \cf0 \cb1 \CocoaLigature1 \
+ ...\
+\
+The above is the groups that Apple have created for you.\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f2\b\fs34 \cf0 File and directory ownership\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\b0\fs26 \cf0 \
+You can see the ownership of files and directories you do ls -la. It's the second and third columns that you see.\
+\
+	
+\f3 \cf8 \cb0 \CocoaLigature0 ls -la
+\f0 \cf0 \cb1 \CocoaLigature1 \
+	
+\f3 \cf8 \cb0 \CocoaLigature0 drwxr-xr-x  10 kamranlayegh  staff     340 10 May 19:45 .
+\f0 \cf0 \cb1 \CocoaLigature1 \
+                                        OWNER (USER)     GROUP\
+                                        kamranlayeg           staff\
+\
+To change ownership use the chown command\
+\
+For example, suppose the file test.txt belongs to kamranlayegh:\
+\
+	
+\f3 \cf8 \cb0 \CocoaLigature0 ls -la
+\f0 \cf0 \cb1 \CocoaLigature1 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 	
+\f3 \cf8 \cb0 \CocoaLigature0 -rw-r--r--   1 kamranlayegh  staff     0 10 May 19:58 test.txt
+\f0 \cf0 \cb1 \CocoaLigature1 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 \
+To change ownership to user 
+\f3 \cf8 \cb0 \CocoaLigature0 Kam2
+\f0 \cf0 \cb1 \CocoaLigature1  in group 
+\f3 \cf8 \cb0 \CocoaLigature0 staff
+\f0 \cf0 \cb1 \CocoaLigature1 , we use the 
+\f3 \cf8 \cb0 \CocoaLigature0 chown
+\f0 \cf0 \cb1 \CocoaLigature1  command:\
+\
+	
+\f3 \cf8 \cb0 \CocoaLigature0 chown Kam2:staff test.txt
+\f0 \cf0 \cb1 \CocoaLigature1 \
+	
+\f3 \cf8 \cb0 \CocoaLigature0 chown: test.txt: Operation not permitted
+\f0 \cf0 \cb1 \CocoaLigature1 \
+\
+	
+\f3 \cf8 \cb0 \CocoaLigature0 sudo chown Kam2:staff test.txt
+\f0 \cf0 \cb1 \CocoaLigature1 \
+	...\
+\
+To prove that ownership has changed:\
+\
+	
+\f3 \cf8 \cb0 \CocoaLigature0 ls -la
+\f0 \cf0 \cb1 \CocoaLigature1 \
+	...\
+	
+\f3 \cf8 \cb0 \CocoaLigature0 -rw-r--r--   1 Kam2          staff     0 10 May 19:58 test.txt
+\f0 \cf0 \cb1 \CocoaLigature1 \
+\
+To change just the owner to Kam2\
+\
+	
+\f3 \cf8 \cb0 \CocoaLigature0 chown Kam2 test.txt
+\f0 \cf0 \cb1 \CocoaLigature1 \
+\
+To change just the group to staff\
+\
+	
+\f3 \cf8 \cb0 \CocoaLigature0 chown :staff test.txt
+\f0 \cf0 \cb1 \CocoaLigature1 \
+\
+To change the ownership of a directory without changing the ownership of the contents of it\
+\
+	
+\f3 \cf8 \cb0 \CocoaLigature0 chown kamranlayegh:staff test1
+\f0 \cf0 \cb1 \CocoaLigature1 \
+\
+To change the ownership of a directory and the contents of the directory use the recursive option, -R\
+\
+	
+\f3 \cf8 \cb0 \CocoaLigature0 chown -R kamranlayegh:staff test1
+\f0 \cf0 \cb1 \CocoaLigature1 \
+\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f2\b\fs34 \cf0 File and directory permissions\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\b0\fs26 \cf0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f2\fs24 \cf0 {{\NeXTGraphic 1__#$!@%!#__Pasted Graphic 2.tiff \width9400 \height3280
+}¬}\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs26 \cf0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\b \cf0 execute
+\b0  permission on a 
+\b directory
+\b0  means being able to 
+\b search
+\b0  in it.\
+\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f2\b\fs34 \cf0 Setting permissions using alpha notation\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\b0\fs26 \cf0 \
+u means user (owner)\
+g means group\
+o means others\
+\
+	Set permissions for owner and group and others\
+\
+	
+\f3 \cf8 \cb0 \CocoaLigature0 chmod ugo=rwx test.txt
+\f0 \cf0 \cb1 \CocoaLigature1 \
+\
+	Set permissions selectively\
+\
+	
+\f3 \cf8 \cb0 \CocoaLigature0 chmod u=rwx,g=rw,o=r test.txt
+\f0 \cf0 \cb1 \CocoaLigature1 \
+\
+	Add write permission to owner and group\
+\
+	
+\f3 \cf8 \cb0 \CocoaLigature0 chmod ug+w test.txt
+\f0 \cf0 \cb1 \CocoaLigature1 \
+\
+	Take away write permission from others\
+\
+	
+\f3 \cf8 \cb0 \CocoaLigature0 chmod o-w test.txt
+\f0 \cf0 \cb1 \CocoaLigature1 \
+\
+	We can use the shorthand a for all (ugo)\
+\
+	
+\f3 \cf8 \cb0 \CocoaLigature0 chmod a+rw test.txt
+\f0 \cf0 \cb1 \CocoaLigature1  add r and w permissions to ugo\
+\
+	is the same as\
+\
+	
+\f3 \cf8 \cb0 \CocoaLigature0 chmod ugo+rw test.txt
+\f0 \cf0 \cb1 \CocoaLigature1  add r and w permissions to ugo\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f2\b\fs34 \cf0 The root user\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\b0\fs26 \cf0 \
+  
+\f2\fs24 {{\NeXTGraphic 1__#$!@%!#__Pasted Graphic 4.tiff \width10440 \height4940
+}¬}
+\f0\fs26 \
+From Apple\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl522\partightenfactor0
+\ls1\ilvl0
+\fs30 \cf5 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+Any user with an administrator account can become the root user or reset the root password.\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl522\partightenfactor0
+\ls1\ilvl0\cf5 \kerning1\expnd0\expndtw0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+A root user has the ability to access other users' files on the computer.\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl522\partightenfactor0
+\ls1\ilvl0\cf5 \kerning1\expnd0\expndtw0 {\listtext	\'95	}The root user doesn't appear in Users & Groups, Users, or Accounts preferences.\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl522\partightenfactor0
+\ls1\ilvl0\cf5 \expnd0\expndtw0\kerning0
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\b\fs42 \cf2 Is a root user enabled?
+\b0\fs26 \cf0 \kerning1\expnd0\expndtw0 \
+\
+It looks like there is no way of checking either using Apple GUI, or the command line. But what is the point in checking?\
+\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://support.apple.com/en-gb/HT204012"}}{\fldrslt \cf0 https://support.apple.com/en-gb/HT204012}}\
+\
+From OSXDaily\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\b\fs42 \cf2 \expnd0\expndtw0\kerning0
+Enable a root User Account In Yosemite, OS X Mavericks and Mountain Lion
+\b0\fs26 \cf0 \kerning1\expnd0\expndtw0 \
+\
+\pard\pardeftab720\sl520\partightenfactor0
+
+\f6\fs28 \cf2 \cb10 \expnd0\expndtw0\kerning0
+% dsenableroot\cb1 \
+\cb10 username = Paul\cb1 \
+\cb10 user password:\cb1 \
+\cb10 root password:\cb1 \
+\cb10 verify root password:\cb1 \
+\cb10 dsenableroot:: ***Successfully enabled root user.
+\f0\fs26 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 \
+\pard\pardeftab720\sl471\sa160\partightenfactor0
+
+\b\fs42 \cf2 \expnd0\expndtw0\kerning0
+Disable Root User Account\
+\pard\pardeftab720\sl520\partightenfactor0
+
+\f6\b0\fs28 \cf2 \cb10 % dsenableroot -d\
+username = Paul\
+user password:\
+dsenableroot:: ***Successfully disabled root user.\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs26 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
+{\field{\*\fldinst{HYPERLINK "http://osxdaily.com/2015/02/19/enable-disable-root-command-line-mac/"}}{\fldrslt http://osxdaily.com/2015/02/19/enable-disable-root-command-line-mac/}}\
+\
+\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f2\b\fs34 \cf0 sudo and sudoers\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\b0\fs26 \cf0 \
+As admin users on the Mac we can do everything that the root user can do. Use sudo, say 'sue-do'.\
+\
+sudo stands for 'substitute user and do' not 'superuser and do'.\
+\
+You prefix a command with sudo:\
+\
+	
+\f3 \cf8 \cb0 \CocoaLigature0 sudo ls -la
+\f0 \cf0 \cb1 \CocoaLigature1 \
+\
+When you do a sudo and authenticate successfully, it remains valid for about 5 minutes. You can kill (expire) the authentication immediately by using\
+\
+	
+\f3 \cf8 \cb0 \CocoaLigature0 sudo -k
+\f0 \cf0 \cb1 \CocoaLigature1 \
+\
+If you want to run a command not as root, but as another user, use the -u option\
+\
+	
+\f3 \cf8 \cb0 \CocoaLigature0 sudo -u Kam2 whoami
+\f0 \cf0 \cb1 \CocoaLigature1 \
+	
+\f3 \cf8 \cb0 \CocoaLigature0 Password:
+\f0 \cf0 \cb1 \CocoaLigature1 \
+	
+\f3 \cf8 \cb0 \CocoaLigature0 Kam2
+\f0 \cf0 \cb1 \CocoaLigature1 \
+	
+\f3 \cf8 \cb0 \CocoaLigature0 whoami
+\f0 \cf0 \cb1 \CocoaLigature1 \
+	
+\f3 \cf8 \cb0 \CocoaLigature0 kamranlayegh
+\f0 \cf0 \cb1 \CocoaLigature1 \
+\
+	But\
+\
+	
+\f3 \cf8 \cb0 \CocoaLigature0 sudo whoami
+\f0 \cf0 \cb1 \CocoaLigature1 \
+	
+\f3 \cf8 \cb0 \CocoaLigature0 root
+\f0 \cf0 \cb1 \CocoaLigature1 \
+\
+Unix keeps track of who is allowed to do a sudo in a special file\
+\
+	
+\f3 \cf8 \cb0 \CocoaLigature0 sudo cat /etc/sudoers
+\f0 \cf0 \cb1 \CocoaLigature1 \
+	...\
+\
+	Do not edit this file directly. Use Apple GUI "Users & Groups" in System Preferences.\
+\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f1\b\fs44 \cf3 5. Commands and Programs
+\f0\b0\fs26 \cf0 \
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f2\b\fs34 \cf0  Command basics\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\b0\fs26 \cf0 \
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f2\b\fs34 \cf0  The PATH variable\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\b0\fs26 \cf0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f2\b\fs34 \cf0  System information commands\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\b0\fs26 \cf0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f2\b\fs34 \cf0  Disk information commands\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\b0\fs26 \cf0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f2\b\fs34 \cf0  Viewing processes\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\b0\fs26 \cf0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f2\b\fs34 \cf0  Monitoring processes\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\b0\fs26 \cf0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f2\b\fs34 \cf0  Stopping processes\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\b0\fs26 \cf0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f2\b\fs34 \cf0  Text file helpers\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\b0\fs26 \cf0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f2\b\fs34 \cf0  Utility programs\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\b0\fs26 \cf0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f2\b\fs34 \cf0  Using the command history\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\b0\fs26 \cf0 \
+\
+\
+\
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
 
 \f1\b\fs44 \cf3 Chapter 6 Redirecting Input and Output\
@@ -856,7 +1279,7 @@ find . -type f -size -41k -iname '*.pdf' -exec mv \{\} ./small \\;
 \f0\fs26 \CocoaLigature1 produces
 \f3\fs20 \CocoaLigature0 \
        
-\f5\fs26 \cf10 \cb11 \expnd0\expndtw0\kerning0
+\f5\fs26 \cf11 \cb12 \expnd0\expndtw0\kerning0
 \CocoaLigature1 1       2      12
 \f0 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
@@ -880,16 +1303,16 @@ find . -type f -size -41k -iname '*.pdf' -exec mv \{\} ./small \\;
 
 \f2\fs24 \cf0 When bash starts, it reads, in order:\
 	
-\f5\fs26 \cf10 \cb11 \expnd0\expndtw0\kerning0
+\f5\fs26 \cf11 \cb12 \expnd0\expndtw0\kerning0
 /etc/profile
 \f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
 	
-\f5\fs26 \cf10 \cb11 \expnd0\expndtw0\kerning0
+\f5\fs26 \cf11 \cb12 \expnd0\expndtw0\kerning0
 ~/.bash_profile, ~/.bash_login, ~/.profile, ~/.login
 \f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
 \
 	
-\f5\fs26 \cf10 \cb11 \expnd0\expndtw0\kerning0
+\f5\fs26 \cf11 \cb12 \expnd0\expndtw0\kerning0
 /etc/profile
 \f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0  is for all users and should not be edited. This file is always read.\
 	Then, the file names on the second line above are checked. As soon as one of these is found to exist it will be read and the search terminated. That means the remaining files on the list will be ignored.\
@@ -900,51 +1323,51 @@ find . -type f -size -41k -iname '*.pdf' -exec mv \{\} ./small \\;
 \f2\fs24 file names on the second line above
 \f0\fs26  are for the current user and can be modified.\
 	Kevin Scoglund recommends that we put all our configs in 
-\f5 \cf10 \cb11 \expnd0\expndtw0\kerning0
+\f5 \cf11 \cb12 \expnd0\expndtw0\kerning0
 ~/.bash_profile
 \f0 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
 	In order to get our customisation take effect for both cases when we\
 		- open a new terminal window and\
 		- open a sub-shell by typing 'bash'\
 	Kevin Scoglund recomends we put all our configs in 
-\f5 \cf10 \cb11 \expnd0\expndtw0\kerning0
+\f5 \cf11 \cb12 \expnd0\expndtw0\kerning0
 ~/.bashrc
 \f0 \cf0 \cb1 \kerning1\expnd0\expndtw0  (for bash resource) and in 
-\f5 \cf10 \cb11 \expnd0\expndtw0\kerning0
+\f5 \cf11 \cb12 \expnd0\expndtw0\kerning0
 ~/.bash_profile
 \f0 \cf0 \cb1 \kerning1\expnd0\expndtw0  tell bash to read and execute 
-\f5 \cf10 \cb11 \expnd0\expndtw0\kerning0
+\f5 \cf11 \cb12 \expnd0\expndtw0\kerning0
 ~/.bashrc
 \f0 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
 	KL followed this, 24.04.2016, to add colour to grep matches. See "Steps" below.\
 	How?\
 		Add the following to 
-\f5 \cf10 \cb11 \expnd0\expndtw0\kerning0
+\f5 \cf11 \cb12 \expnd0\expndtw0\kerning0
 ~/.bash_profile
 \f0 \cf0 \cb1 \kerning1\expnd0\expndtw0 :\
 \
 		
-\f5 \cf10 \cb11 \expnd0\expndtw0\kerning0
+\f5 \cf11 \cb12 \expnd0\expndtw0\kerning0
 if [-f ~/.bashrc]; then
 \f0 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
 			
-\f5 \cf10 \cb11 \expnd0\expndtw0\kerning0
+\f5 \cf11 \cb12 \expnd0\expndtw0\kerning0
 source ~/.bashrc
 \f0 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
 		
-\f5 \cf10 \cb11 \expnd0\expndtw0\kerning0
+\f5 \cf11 \cb12 \expnd0\expndtw0\kerning0
 fi
 \f0 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
 \
 		Then put all shell config in 
-\f5 \cf10 \cb11 \expnd0\expndtw0\kerning0
+\f5 \cf11 \cb12 \expnd0\expndtw0\kerning0
 ~/.bashrc
 \f0 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
 	Note: the conditional simply says if 
-\f5 \cf10 \cb11 \expnd0\expndtw0\kerning0
+\f5 \cf11 \cb12 \expnd0\expndtw0\kerning0
 -f
 \f0 \cf0 \cb1 \kerning1\expnd0\expndtw0  (file exists) 
-\f5 \cf10 \cb11 \expnd0\expndtw0\kerning0
+\f5 \cf11 \cb12 \expnd0\expndtw0\kerning0
 ~/.bashrc
 \f0 \cf0 \cb1 \kerning1\expnd0\expndtw0  then read it as your source for config.\
 \
@@ -967,22 +1390,22 @@ nano .bash_profile
 		Then typed in:\
 \
 		
-\f5 \cf10 \cb11 \expnd0\expndtw0\kerning0
+\f5 \cf11 \cb12 \expnd0\expndtw0\kerning0
 if [-f ~/.bashrc]; then
 \f0 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
 			
-\f5 \cf10 \cb11 \expnd0\expndtw0\kerning0
+\f5 \cf11 \cb12 \expnd0\expndtw0\kerning0
 source ~/.bashrc
 \f0 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
 		
-\f5 \cf10 \cb11 \expnd0\expndtw0\kerning0
+\f5 \cf11 \cb12 \expnd0\expndtw0\kerning0
 fi
 \f0 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
 \
 		Then Control X, y, return.\
 \
 		Then in 
-\f5 \cf10 \cb11 \expnd0\expndtw0\kerning0
+\f5 \cf11 \cb12 \expnd0\expndtw0\kerning0
 ~/.bashrc
 \f0 \cf0 \cb1 \kerning1\expnd0\expndtw0  added:\
 		
@@ -1086,7 +1509,7 @@ grep -l apple *fruit.txt
 \
 \
 		
-\f0\fs26 \cf12 8.1 grep- Searching for matching expressions
+\f0\fs26 \cf13 8.1 grep- Searching for matching expressions
 \f2\fs24 \cf0 \
 \
 \
@@ -1142,7 +1565,7 @@ history | grep ls
 
 \f2\fs24 \cf0 \CocoaLigature1 \
 		
-\f0\fs26 \cf12 8.2 grep- Multiple files, other input
+\f0\fs26 \cf13 8.2 grep- Multiple files, other input
 \f2\fs24 \cf0 \
 \
 \
@@ -1198,7 +1621,7 @@ foreground colors     background colors     attributes\
 
 \f2\fs24 \cf0 \
 		
-\f0\fs26 \cf12 8.3 grep- Coloring matched text
+\f0\fs26 \cf13 8.3 grep- Coloring matched text
 \f2\fs24 \cf0 \
 \
 \
@@ -1215,8 +1638,8 @@ foreground colors     background colors     attributes\
 \CocoaLigature1 grep '.a.a.a' fruit.txt
 \fs20 \cf0 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 \
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
-\cf13 \cb14 banana\cf0 \cb1 \
-\cf13 \cb14 papaya
+\cf14 \cb15 banana\cf0 \cb1 \
+\cf14 \cb15 papaya
 \f2\fs24 \cf0 \cb1 \CocoaLigature1 	\
 	as . matches exactly one character.\
 \
@@ -1227,9 +1650,9 @@ foreground colors     background colors     attributes\
 \CocoaLigature1 grep 'a..le' fruit.txt
 \fs20 \cf0 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 \
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
-\cf13 \cb14 apple\cf0 \cb1 \
-pine\cf13 \cb14 apple\cf0 \cb1 \
-\cf13 \cb14 apple\cf0 \cb1 \
+\cf14 \cb15 apple\cf0 \cb1 \
+pine\cf14 \cb15 apple\cf0 \cb1 \
+\cf14 \cb15 apple\cf0 \cb1 \
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
 
 \f2\fs24 \cf0 \CocoaLigature1 \
@@ -1237,11 +1660,11 @@ pine\cf13 \cb14 apple\cf0 \cb1 \
 \f3\fs26 \cf1 \cb5 \expnd0\expndtw0\kerning0
 grep 'ea[cp]' fruit.txt
 \fs20 \cf0 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 \
-p\cf13 \cb14 eac\cf0 \cb1 h\
-pin\cf13 \cb14 eap\cf0 \cb1 ple\
+p\cf14 \cb15 eac\cf0 \cb1 h\
+pin\cf14 \cb15 eap\cf0 \cb1 ple\
 
 \f2\fs24 \CocoaLigature1 		
-\f0\fs26 \cf12 8.4 Introduction to regular expressions
+\f0\fs26 \cf13 8.4 Introduction to regular expressions
 \f2\fs24 \cf0 \
 \
 \
@@ -1251,7 +1674,7 @@ pin\cf13 \cb14 eap\cf0 \cb1 ple\
 \b0\fs24 \
 \
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
-\cf0    {{\NeXTGraphic 1__#$!@%!#__Pasted Graphic 2.tiff \width12280 \height7260
+\cf0    {{\NeXTGraphic 1__#$!@%!#__1__#$!@%!#__Pasted Graphic 2.tiff \width12280 \height7260
 }¬}\
     \
 
@@ -1262,7 +1685,7 @@ pin\cf13 \cb14 eap\cf0 \cb1 ple\
 }¬}\
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
 \cf0 		
-\f0\fs26 \cf12 8.5 Regular expressions- Basic syntax
+\f0\fs26 \cf13 8.5 Regular expressions- Basic syntax
 \f2\fs24 \cf0 \
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 
@@ -1284,7 +1707,7 @@ pin\cf13 \cb14 eap\cf0 \cb1 ple\
 echo 'Aa:BbDcEeUu' | grep '[:upper:]'
 \fs20 \cf0 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 \
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
-\cf0 Aa\cf13 \cb14 :\cf0 \cb1 BbDcE\cf13 \cb14 e\cf0 \cb1 U\cf13 \cb14 u\cf0 \cb1 \
+\cf0 Aa\cf14 \cb15 :\cf0 \cb1 BbDcE\cf14 \cb15 e\cf0 \cb1 U\cf14 \cb15 u\cf0 \cb1 \
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 
 \f2\fs24 \cf0 \CocoaLigature1 \
@@ -1294,15 +1717,15 @@ To get the desired effect, enclose in another set of square brackets\
 echo 'AaBbDcEeUu' | grep '[[:upper:]]'
 \fs20 \cf0 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 \
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
-\cf13 \cb14 A\cf0 \cb1 a\cf13 \cb14 B\cf0 \cb1 b\cf13 \cb14 D\cf0 \cb1 c\cf13 \cb14 E\cf0 \cb1 e\cf13 \cb14 U\cf0 \cb1 u
+\cf14 \cb15 A\cf0 \cb1 a\cf14 \cb15 B\cf0 \cb1 b\cf14 \cb15 D\cf0 \cb1 c\cf14 \cb15 E\cf0 \cb1 e\cf14 \cb15 U\cf0 \cb1 u
 \f2\fs24 \CocoaLigature1 \
 \
 	
 \f3\fs26 \cf1 \cb5 \expnd0\expndtw0\kerning0
 grep [[:alpha:]] fruit.txt
 \fs20 \cf0 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 \
-\cf13 \cb14 pear\cf0 \cb1 \
-\cf13 \cb14 raspberry\cf0 \cb1 \
+\cf14 \cb15 pear\cf0 \cb1 \
+\cf14 \cb15 raspberry\cf0 \cb1 \
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
 
 \f2\fs24 \cf0 \CocoaLigature1 ...\
@@ -1324,9 +1747,9 @@ grep 'ap+le' fruit.txt
 grep -E 'ap+le' fruit.txt
 \fs20 \cf0 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 \
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
-\cf13 \cb14 apple\cf0 \cb1 \
-pine\cf13 \cb14 apple\cf0 \cb1 \
-\cf13 \cb14 apple
+\cf14 \cb15 apple\cf0 \cb1 \
+pine\cf14 \cb15 apple\cf0 \cb1 \
+\cf14 \cb15 apple
 \f2\fs24 \cf0 \cb1 \CocoaLigature1 \
 \
 3.\
@@ -1334,9 +1757,9 @@ pine\cf13 \cb14 apple\cf0 \cb1 \
 \f3\fs26 \cf1 \cb5 \expnd0\expndtw0\kerning0
 grep 'ap\\+le' fruit.txt
 \fs20 \cf0 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 \
-\cf13 \cb14 apple\cf0 \cb1 \
-pine\cf13 \cb14 apple\cf0 \cb1 \
-\cf13 \cb14 apple\cf0 \cb1 \
+\cf14 \cb15 apple\cf0 \cb1 \
+pine\cf14 \cb15 apple\cf0 \cb1 \
+\cf14 \cb15 apple\cf0 \cb1 \
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
 
 \f2\fs24 \cf0 \CocoaLigature1 \
@@ -1348,7 +1771,7 @@ In 2, by adding -E option, we turn on the
 In 3, we escape the + so it is not interpreted as a literal + sign, but as meaning "1 or more repeats of the previous character".\
 \
 		
-\f0\fs26 \cf12 8.6 Using regular expressions with grep
+\f0\fs26 \cf13 8.6 Using regular expressions with grep
 \f2\fs24 \cf0 \
 \
 \
@@ -1403,7 +1826,7 @@ tr ',' '\\t' < us_presidents.csv > us_presidents.tsv
 \f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
 \
 		
-\f0\fs26 \cf12 8.7 tr- Translating characters
+\f0\fs26 \cf13 8.7 tr- Translating characters
 \f2\fs24 \cf0 \
 \
 \
@@ -1413,7 +1836,7 @@ tr ',' '\\t' < us_presidents.csv > us_presidents.tsv
 \b0\fs24 \
 	-c (complement) is the negation operator and is used in combination with -d option. See examples in the next table.\
 \
-	{{\NeXTGraphic 1__#$!@%!#__Pasted Graphic 4.tiff \width7540 \height3340
+	{{\NeXTGraphic 1__#$!@%!#__1__#$!@%!#__Pasted Graphic 4.tiff \width7540 \height3340
 }¬}\
 \
 	{{\NeXTGraphic 1__#$!@%!#__Pasted Graphic 5.tiff \width9560 \height4180
@@ -1422,7 +1845,7 @@ tr ',' '\\t' < us_presidents.csv > us_presidents.tsv
 }¬}\
 	\
 		
-\f0\fs26 \cf12 8.8 tr- Deleting and squeezing characters
+\f0\fs26 \cf13 8.8 tr- Deleting and squeezing characters
 \f2\fs24 \cf0 \
 \
 \
@@ -1434,11 +1857,11 @@ tr ',' '\\t' < us_presidents.csv > us_presidents.tsv
 	The syntax for search and replacement is\
 \
 	
-\f5\fs26 \cf10 \cb11 \expnd0\expndtw0\kerning0
+\f5\fs26 \cf11 \cb12 \expnd0\expndtw0\kerning0
 sed 's/
-\f6\i search_string
+\f7\i search_string
 \f5\i0 /
-\f6\i replacement_string
+\f7\i replacement_string
 \f5\i0 /'
 \f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
 \
@@ -1513,7 +1936,7 @@ Duirng nighttime we have moonlight
 \f2\fs24 \CocoaLigature1 \
 \
 		
-\f0\fs26 \cf12 8.9 sed- Stream editor
+\f0\fs26 \cf13 8.9 sed- Stream editor
 \f2\fs24 \cf0 \
 \
 \
@@ -1560,14 +1983,14 @@ Note the indentation by a tab in above output.\
 \
 	You can use the ctrl v sequence with some other characters as well such as \
 	
-\f4\fs26 \cf10 \cb11 \expnd0\expndtw0\kerning0
+\f4\fs26 \cf11 \cb12 \expnd0\expndtw0\kerning0
 \uc0\u8963 
 \f5  v 
 \f4 \uc0\u9099 
 \f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
 	and \
 	
-\f4\fs26 \cf10 \cb11 \expnd0\expndtw0\kerning0
+\f4\fs26 \cf11 \cb12 \expnd0\expndtw0\kerning0
 \uc0\u8963 
 \f5  v 
 \f4 \uc0\u8617 
@@ -1609,7 +2032,7 @@ Layegh, Kamran
 \f2\fs24 \CocoaLigature1 \
 \
 		
-\f0\fs26 \cf12 8.10 sed- Regular expressions and back-references
+\f0\fs26 \cf13 8.10 sed- Regular expressions and back-references
 \f2\fs24 \cf0 \
 \
 \
@@ -1681,7 +2104,7 @@ cut -f 2,6 -d ',' us_presidents.csv
 \f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0  option does nothing, i.e. returns unchanged, the lines that have no delimiter in them.\
 \
 		
-\f0\fs26 \cf12 8.11 cut- Cutting select text portions
+\f0\fs26 \cf13 8.11 cut- Cutting select text portions
 \f2\fs24 \cf0 \
 \
 \
@@ -1707,13 +2130,13 @@ diff original_file.txt revised_file.txt
 
 \f2\fs24 \cf0 \CocoaLigature1 \
 	diff uses these abbreviations: 
-\f5\fs26 \cf10 \cb11 \expnd0\expndtw0\kerning0
+\f5\fs26 \cf11 \cb12 \expnd0\expndtw0\kerning0
 d
 \f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0  for deleted; 
-\f5\fs26 \cf10 \cb11 \expnd0\expndtw0\kerning0
+\f5\fs26 \cf11 \cb12 \expnd0\expndtw0\kerning0
 c
 \f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0  for changed; 
-\f5\fs26 \cf10 \cb11 \expnd0\expndtw0\kerning0
+\f5\fs26 \cf11 \cb12 \expnd0\expndtw0\kerning0
 a
 \f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0  for appended.\
 \
@@ -1722,7 +2145,7 @@ a
 \b \cf0 deleted
 \b0 \
 	So, in the above output, 
-\f5\fs26 \cf10 \cb11 \expnd0\expndtw0\kerning0
+\f5\fs26 \cf11 \cb12 \expnd0\expndtw0\kerning0
 2d1
 \f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0  means 
 \i "Look at line 2 of the left file and line 1 of the right file and see a deletion"
@@ -1732,7 +2155,7 @@ a
 \f3\fs20 \CocoaLigature0 < line 2:  delete delete delete delete delete delete
 \f2\fs24 \CocoaLigature1 \
 	the 
-\f5\fs26 \cf10 \cb11 \expnd0\expndtw0\kerning0
+\f5\fs26 \cf11 \cb12 \expnd0\expndtw0\kerning0
 <
 \f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0  means 
 \i "in the left file"
@@ -1741,7 +2164,7 @@ a
 \i "in the left file"
 \i0 \
 	
-\f5\fs26 \cf10 \cb11 \expnd0\expndtw0\kerning0
+\f5\fs26 \cf11 \cb12 \expnd0\expndtw0\kerning0
 line 2:  delete delete delete delete delete delete
 \f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
 	
@@ -1792,7 +2215,7 @@ line 2:  delete delete delete delete delete delete
 \cf0 \
 \
 		
-\f0\fs26 \cf12 8.12 diff- Comparing files
+\f0\fs26 \cf13 8.12 diff- Comparing files
 \f2\fs24 \cf0 \
 \
 \
@@ -1804,16 +2227,16 @@ line 2:  delete delete delete delete delete delete
 	{{\NeXTGraphic 1__#$!@%!#__Pasted Graphic 8.tiff \width9840 \height3900
 }¬}\
 	The 
-\f5\fs26 \cf10 \cb11 \expnd0\expndtw0\kerning0
+\f5\fs26 \cf11 \cb12 \expnd0\expndtw0\kerning0
 -c
 \f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0  option makes diff to output all the contents of both files with 3 coded markings: - for deleted; + for appended; ! for changed. The - can only appear in the left file. The + can only appear in the right file. The ! must appear in pairs in both files.\
 \
 	The 
-\f5\fs26 \cf10 \cb11 \expnd0\expndtw0\kerning0
+\f5\fs26 \cf11 \cb12 \expnd0\expndtw0\kerning0
 -y
 \f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0  option does the same thing, but puts the output side by side, rather than one above the other.	\
 	The 
-\f5\fs26 \cf10 \cb11 \expnd0\expndtw0\kerning0
+\f5\fs26 \cf11 \cb12 \expnd0\expndtw0\kerning0
 -u
 \f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0  option merges the two files and shows which lines will be deleted and which will be appended. A change is of course a deletion plus an insertion, so a change will appear as a - and a + on the same line number:\
 	
@@ -1830,14 +2253,14 @@ diff -u original_file.txt revised_file.txt
 
 \f2\fs24 \cf0 \CocoaLigature1 \
 	The 
-\f5\fs26 \cf10 \cb11 \expnd0\expndtw0\kerning0
+\f5\fs26 \cf11 \cb12 \expnd0\expndtw0\kerning0
 -q
 \f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0  option simply tells us if the files differ or not.\
 	If the files are identical, the 
-\f5\fs26 \cf10 \cb11 \expnd0\expndtw0\kerning0
+\f5\fs26 \cf11 \cb12 \expnd0\expndtw0\kerning0
 -q
 \f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0  option will fail silently. To force it to confirm that the files are identical use the 
-\f5\fs26 \cf10 \cb11 \expnd0\expndtw0\kerning0
+\f5\fs26 \cf11 \cb12 \expnd0\expndtw0\kerning0
 -qs
 \f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0  option.\
 \
@@ -1849,13 +2272,13 @@ diff -u original_file.txt revised_file.txt | mate
 	{{\NeXTGraphic 1__#$!@%!#__Pasted Graphic 9.tiff \width11980 \height9320
 }¬}\
 	For a count of changes, pipe to 
-\f5\fs26 \cf10 \cb11 \expnd0\expndtw0\kerning0
+\f5\fs26 \cf11 \cb12 \expnd0\expndtw0\kerning0
 diffstat
 \f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 , noting that 
-\f5\fs26 \cf10 \cb11 \expnd0\expndtw0\kerning0
+\f5\fs26 \cf11 \cb12 \expnd0\expndtw0\kerning0
 -u
 \f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0  option must be used for 
-\f5\fs26 \cf10 \cb11 \expnd0\expndtw0\kerning0
+\f5\fs26 \cf11 \cb12 \expnd0\expndtw0\kerning0
 diffstat
 \f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0  to work\
 	
@@ -1874,7 +2297,7 @@ diff -u original_file.txt revised_file.txt | diffstat
 \f2\fs24 \CocoaLigature1  means two deletions. This is because a change is a deletion plus an insertion\
 \
 		
-\f0\fs26 \cf12 8.13 diff- Alternative formats
+\f0\fs26 \cf13 8.13 diff- Alternative formats
 \f2\fs24 \cf0 \
 \
 \
@@ -1886,13 +2309,13 @@ diff -u original_file.txt revised_file.txt | diffstat
 	
 \b I
 \b0 t parses an input stream into items. Then it loops through each item and passes them to a command. The command to which the items are passed is called the utility command. The exact manner in which the items are passed can be controlled by the 
-\f5\fs26 \cf10 \cb11 \expnd0\expndtw0\kerning0
+\f5\fs26 \cf11 \cb12 \expnd0\expndtw0\kerning0
 -n
 \f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0  option. 
-\f5\fs26 \cf10 \cb11 \expnd0\expndtw0\kerning0
+\f5\fs26 \cf11 \cb12 \expnd0\expndtw0\kerning0
 -n1
 \f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0  will cause the the items to be passed 1-at-a-time. 
-\f5\fs26 \cf10 \cb11 \expnd0\expndtw0\kerning0
+\f5\fs26 \cf11 \cb12 \expnd0\expndtw0\kerning0
 -n2
 \f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0  will cause the items to be passed 2-at-a-time, and so on. See examples below for illustration.\
 \
@@ -1947,17 +2370,17 @@ echo 1 2 3 4 | xargs -n3
 
 \f2\fs24 \CocoaLigature1 \
 	The 
-\f5\fs26 \cf10 \cb11 \expnd0\expndtw0\kerning0
+\f5\fs26 \cf11 \cb12 \expnd0\expndtw0\kerning0
 -L
 \f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0  option\
 	He is not very clear what this option does. See man pages for info. Roughly, it looks like:\
 	the
-\f5\fs26 \cf10 \cb11 \expnd0\expndtw0\kerning0
+\f5\fs26 \cf11 \cb12 \expnd0\expndtw0\kerning0
  -n2
 \f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0  option, for example, builds a command by outputting 2 items at a time, tokenised by 
 \i space
 \i0 , whereas 
-\f5\fs26 \cf10 \cb11 \expnd0\expndtw0\kerning0
+\f5\fs26 \cf11 \cb12 \expnd0\expndtw0\kerning0
 -L2
 \f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0  option does the same but tokenised by 
 \i line break
@@ -1981,9 +2404,9 @@ buy more raspberry\
 ls ~/library | grep "^A.*"
 \fs20 \cf0 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 \
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
-\cf13 \cb14 Accounts\cf0 \cb1 \
-\cf13 \cb14 Acrobat User Data\cf0 \cb1 \
-\cf13 \cb14 Address Book Plug-Ins\cf0 \cb1 \
+\cf14 \cb15 Accounts\cf0 \cb1 \
+\cf14 \cb15 Acrobat User Data\cf0 \cb1 \
+\cf14 \cb15 Address Book Plug-Ins\cf0 \cb1 \
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
 
 \f2\fs24 \cf0 \CocoaLigature1 ...	\
@@ -2013,7 +2436,7 @@ Acrobat User Data\
 \f2\fs24 \CocoaLigature1 ...\
 \
 		
-\f0\fs26 \cf12 8.14 xargs- Passing argument lists to commands
+\f0\fs26 \cf13 8.14 xargs- Passing argument lists to commands
 \f2\fs24 \cf0 \
 \
 \
@@ -2089,7 +2512,7 @@ find . -name "new*.txt" -print0 | xargs -0 -I \{\} cp \{\} ./backup/\{\}.backup
 \f2\fs24 \CocoaLigature1  as argument.\
 \
 		
-\f0\fs26 \cf12 8.15 xargs- Usage examples
+\f0\fs26 \cf13 8.15 xargs- Usage examples
 \f2\fs24 \cf0 \
 \
 \
@@ -2100,7 +2523,7 @@ find . -name "new*.txt" -print0 | xargs -0 -I \{\} cp \{\} ./backup/\{\}.backup
 	c\
 \
 		
-\f0\fs26 \cf12 m
+\f0\fs26 \cf13 m
 \f2\fs24 \cf0 \
 \
 \
@@ -2110,7 +2533,7 @@ find . -name "new*.txt" -print0 | xargs -0 -I \{\} cp \{\} ./backup/\{\}.backup
 	c\
 \
 		
-\f0\fs26 \cf12 m
+\f0\fs26 \cf13 m
 \f2\fs24 \cf0 \
 \
 \
@@ -2120,7 +2543,7 @@ find . -name "new*.txt" -print0 | xargs -0 -I \{\} cp \{\} ./backup/\{\}.backup
 	c\
 \
 		
-\f0\fs26 \cf12 m
+\f0\fs26 \cf13 m
 \f2\fs24 \cf0 \
 \
 \
@@ -2130,7 +2553,7 @@ find . -name "new*.txt" -print0 | xargs -0 -I \{\} cp \{\} ./backup/\{\}.backup
 	c\
 \
 		
-\f0\fs26 \cf12 m
+\f0\fs26 \cf13 m
 \f2\fs24 \cf0 \
 \
 \
@@ -2140,7 +2563,7 @@ find . -name "new*.txt" -print0 | xargs -0 -I \{\} cp \{\} ./backup/\{\}.backup
 	c\
 \
 		
-\f0\fs26 \cf12 m
+\f0\fs26 \cf13 m
 \f2\fs24 \cf0 \
 \
 \
@@ -2152,7 +2575,7 @@ find . -name "new*.txt" -print0 | xargs -0 -I \{\} cp \{\} ./backup/\{\}.backup
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
 
 \f3 \cf1 \cb5 \expnd0\expndtw0\kerning0
-git config --global user.name "\cf15 IMPORTANT CODE\cf1 "
+git config --global user.name "\cf16 IMPORTANT CODE\cf1 "
 \f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 
@@ -2160,7 +2583,7 @@ git config --global user.name "\cf15 IMPORTANT CODE\cf1 "
 \
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 
-\f5 \cf10 \cb11 \expnd0\expndtw0\kerning0
+\f5 \cf11 \cb12 \expnd0\expndtw0\kerning0
 code e.g xcode-select --install
 \fs28 \cf2 \cb1 \kerning1\expnd0\expndtw0 \
 \
@@ -2169,12 +2592,12 @@ file name
 \
 \
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
-\cf12 Unobtrusively fade into the background\cf2 \
+\cf13 Unobtrusively fade into the background\cf2 \
 \
 \
 \pard\pardeftab720\partightenfactor0
 
-\f2\fs24 \cf0        \cb16      \cb1    \cb17      \cb1    \cb18      \cb1    \cb19      \cb1    \cb20      \cb1    \cb21      \cb1    \cb22      \cb1  \
+\f2\fs24 \cf0        \cb17      \cb1    \cb18      \cb1    \cb19      \cb1    \cb20      \cb1    \cb21      \cb1    \cb22      \cb1    \cb23      \cb1  \
 \
 \
 \
