@@ -9,7 +9,7 @@
 \red212\green233\blue150;\red167\green208\blue255;\red224\green190\blue234;\red205\green205\blue205;}
 {\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid1}}
 {\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}}
-\paperw12240\paperh15840\vieww12420\viewh13080\viewkind0
+\paperw12240\paperh15840\vieww14320\viewh10100\viewkind0
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 
 \f0\fs24 \cf2 \
@@ -391,8 +391,14 @@ Will show three commands all of which contain 'ban'\
 \f0 \cf0 \cb1 \CocoaLigature1 \
 \
 	l: different format\
-	a: all, including hidden 'dotfiles'\
+	a: all, including hidden 'dot-files'\
 	h: human readable size (appends B for bytes; K for kilobytes; etc)\
+\
+	
+\f3 \cf8 \cb0 \CocoaLigature0 ls -ldG .??*
+\f0 \cf0 \cb1 \CocoaLigature1 \
+\
+	List only dot-files. The -G option adds colour.\
 \
 
 \f2\b\fs34 Moving around the filesystem
@@ -523,10 +529,10 @@ Fro more: nano-editor.org\
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 
 \f2\fs24 \cf0 {{\NeXTGraphic 3__#$!@%!#__Pasted Graphic.tiff \width3600 \height4420
-}¬}
-\f0\fs26 \
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
-\cf0 \
+}¬}\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs26 \cf0 \
+\
 In mac less has 
 \i replaced
 \i0  more.\
@@ -570,8 +576,7 @@ Also\
 }¬}\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 
 \f0\fs26 \cf0 \
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
-\cf0 \
+\
 	
 \f3 \cf8 \cb0 \CocoaLigature0 head lorem_ipsum.txt
 \f0 \cf0 \cb1 \CocoaLigature1 \
@@ -856,6 +861,102 @@ Notes:\
 find . -type f -size -41k -iname '*.pdf' -exec mv \{\} ./small \\;
 \f0 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
 \
+Using 
+\f3 \cf8 \cb0 \CocoaLigature0 basename
+\f0 \cf0 \cb1 \CocoaLigature1 \
+\
+	from: {\field{\*\fldinst{HYPERLINK "https://en.wikipedia.org/wiki/Basename"}}{\fldrslt https://en.wikipedia.org/wiki/Basename}}\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\b \cf0 basename
+\b0  will retrieve the last name from a pathname ignoring any trailing slashes\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f3 \cf8 \cb0 \CocoaLigature0 basename /home/jsmith/base.wiki 
+\f0 \cf0 \cb1 \CocoaLigature1 \
+
+\f3 \cf8 \cb0 \CocoaLigature0 base.wiki
+\f0 \cf0 \cb1 \CocoaLigature1 \
+\
+
+\f3 \cf8 \cb0 \CocoaLigature0 basename /home/jsmith/
+\f0 \cf0 \cb1 \CocoaLigature1 \
+
+\f3 \cf8 \cb0 \CocoaLigature0 jsmith
+\f0 \cf0 \cb1 \CocoaLigature1 \
+\
+
+\f3 \cf8 \cb0 \CocoaLigature0 basename /
+\f0 \cf0 \cb1 \CocoaLigature1 \
+
+\f3 \cf8 \cb0 \CocoaLigature0 /
+\f0 \cf0 \cb1 \CocoaLigature1 \
+\
+basename can also be used to remove the end of the base name, but not the complete base name\
+\
+
+\f3 \cf8 \cb0 \CocoaLigature0 basename /home/jsmith/base.wiki .wiki
+\f0 \cf0 \cb1 \CocoaLigature1 \
+
+\f3 \cf8 \cb0 \CocoaLigature0 base
+\f0 \cf0 \cb1 \CocoaLigature1 \
+\
+
+\f3 \cf8 \cb0 \CocoaLigature0 basename /home/jsmith/base.wiki ki
+\f0 \cf0 \cb1 \CocoaLigature1 \
+
+\f3 \cf8 \cb0 \CocoaLigature0 base.wi
+\f0 \cf0 \cb1 \CocoaLigature1 \
+\
+
+\f3 \cf8 \cb0 \CocoaLigature0 basename /home/jsmith/base.wiki base.wiki
+\f0 \cf0 \cb1 \CocoaLigature1 \
+
+\f3 \cf8 \cb0 \CocoaLigature0 base.wiki
+\f0 \cf0 \cb1 \CocoaLigature1 \
+\
+Using 
+\f3 \cf8 \cb0 \CocoaLigature0 dirname
+\f0 \cf0 \cb1 \CocoaLigature1 \
+\
+	from: {\field{\*\fldinst{HYPERLINK "https://en.wikipedia.org/wiki/Dirname"}}{\fldrslt https://en.wikipedia.org/wiki/Dirname}}\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\b \cf0 dirname
+\b0  will retrieve the directory-path name from a pathname ignoring any trailing slashes\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f3 \cf8 \cb0 \CocoaLigature0 dirname /home/martin/docs/base.wiki
+\f0 \cf0 \cb1 \CocoaLigature1 \
+
+\f3 \cf8 \cb0 \CocoaLigature0 /home/martin/docs
+\f0 \cf0 \cb1 \CocoaLigature1 \
+\
+
+\f3 \cf8 \cb0 \CocoaLigature0 dirname /home/martin/docs/
+\f0 \cf0 \cb1 \CocoaLigature1 \
+
+\f3 \cf8 \cb0 \CocoaLigature0 /home/martin
+\f0 \cf0 \cb1 \CocoaLigature1 \
+\
+
+\f3 \cf8 \cb0 \CocoaLigature0 dirname base.wiki 
+\f0 \cf0 \cb1 \CocoaLigature1 \
+
+\f3 \cf8 \cb0 \CocoaLigature0 .
+\f0 \cf0 \cb1 \CocoaLigature1 \
+\
+
+\f3 \cf8 \cb0 \CocoaLigature0 dirname /
+\f0 \cf0 \cb1 \CocoaLigature1 \
+
+\f3 \cf8 \cb0 \CocoaLigature0 /
+\f0 \cf0 \cb1 \CocoaLigature1 \
+\
 \
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 
@@ -1001,8 +1102,7 @@ To change the ownership of a directory and the contents of the directory use the
 }¬}\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 
 \f0\fs26 \cf0 \
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
-\cf0 \
+\
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 
 \b \cf0 execute
@@ -1074,11 +1174,9 @@ From Apple\
 \ls1\ilvl0
 \fs30 \cf5 {\listtext	\'95	}\expnd0\expndtw0\kerning0
 Any user with an administrator account can become the root user or reset the root password.\
-\pard\tx220\tx720\pardeftab720\li720\fi-720\sl522\partightenfactor0
-\ls1\ilvl0\cf5 \kerning1\expnd0\expndtw0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\ls1\ilvl0\kerning1\expnd0\expndtw0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
 A root user has the ability to access other users' files on the computer.\
-\pard\tx220\tx720\pardeftab720\li720\fi-720\sl522\partightenfactor0
-\ls1\ilvl0\cf5 \kerning1\expnd0\expndtw0 {\listtext	\'95	}The root user doesn't appear in Users & Groups, Users, or Accounts preferences.\
+\ls1\ilvl0\kerning1\expnd0\expndtw0 {\listtext	\'95	}The root user doesn't appear in Users & Groups, Users, or Accounts preferences.\
 \pard\tx220\tx720\pardeftab720\li720\fi-720\sl522\partightenfactor0
 \ls1\ilvl0\cf5 \expnd0\expndtw0\kerning0
 \
@@ -1087,7 +1185,7 @@ A root user has the ability to access other users' files on the computer.\
 \b\fs42 \cf2 Is a root user enabled?
 \b0\fs26 \cf0 \kerning1\expnd0\expndtw0 \
 \
-It looks like there is no way of checking either using Apple GUI, or the command line. But what is the point in checking?\
+It looks like there is no way of checking this neither using Apple GUI, nor the command line. But what is the point in checking?\
 \
 \
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
@@ -1125,7 +1223,8 @@ dsenableroot:: ***Successfully disabled root user.\
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 
 \f0\fs26 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
-{\field{\*\fldinst{HYPERLINK "http://osxdaily.com/2015/02/19/enable-disable-root-command-line-mac/"}}{\fldrslt http://osxdaily.com/2015/02/19/enable-disable-root-command-line-mac/}}\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "http://osxdaily.com/2015/02/19/enable-disable-root-command-line-mac/"}}{\fldrslt \cf0 http://osxdaily.com/2015/02/19/enable-disable-root-command-line-mac/}}\
 \
 \
 \
@@ -1199,6 +1298,72 @@ Unix keeps track of who is allowed to do a sudo in a special file\
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 
 \f0\b0\fs26 \cf0 \
+Commands are programs. They are files that we execute.\
+\
+	
+\f3 \cf8 \cb0 \CocoaLigature0 which echo
+\f0 \cf0 \cb1 \CocoaLigature1 \
+\
+	
+\f3 \cf8 \cb0 \CocoaLigature0 /bin/echo
+\f0 \cf0 \cb1 \CocoaLigature1 \
+	\
+We can also use\
+\
+	
+\f3 \cf8 \cb0 \CocoaLigature0 whereis echo
+\f0 \cf0 \cb1 \CocoaLigature1 \
+	
+\f3 \cf8 \cb0 \CocoaLigature0 /bin/echo
+\f0 \cf0 \cb1 \CocoaLigature1 \
+\
+and\
+\
+	
+\f3 \cf8 \cb0 \CocoaLigature0 whatis echo
+\f0 \cf0 \cb1 \CocoaLigature1 \
+	
+\f3 \cf8 \cb0 \CocoaLigature0 builtin(1), !(1), %(1),
+\f0 \cf0 \cb1 \CocoaLigature1  ...\
+\
+For many commands we can use the following options for version or help\
+\
+	
+\f3 \cf8 \cb0 \CocoaLigature0 -v 
+\f0 \cf0 \cb1 \CocoaLigature1 ,  
+\f3 \cf8 \cb0 \CocoaLigature0 --version 
+\f0 \cf0 \cb1 \CocoaLigature1 ,  
+\f3 \cf8 \cb0 \CocoaLigature0 --help 
+\f0 \cf0 \cb1 \CocoaLigature1 \
+\
+To exit a program try these\
+\
+	
+\f3 \cf8 \cb0 \CocoaLigature0 q 
+\f0 \cf0 \cb1 \CocoaLigature1 , 
+\f3 \cf8 \cb0 \CocoaLigature0 x 
+\f0 \cf0 \cb1 \CocoaLigature1 , 
+\f4 \cf8 \cb0 \CocoaLigature0 \uc0\u8963 
+\f3 q 
+\f0 \cf0 \cb1 \CocoaLigature1 , 
+\f4 \cf8 \cb0 \CocoaLigature0 \uc0\u8963 
+\f3 x 
+\f0 \cf0 \cb1 \CocoaLigature1 , 
+\f3 \cf8 \cb0 \CocoaLigature0 Esc 
+\f0 \cf0 \cb1 \CocoaLigature1 \
+\
+As a last resort you can force-quit by\
+\
+	
+\f4 \cf8 \cb0 \CocoaLigature0 \uc0\u8963 
+\f3 c 
+\f0 \cf0 \cb1 \CocoaLigature1 \
+\
+You can run more than one command on the same line by separating them with semicolons\
+	\
+	
+\f3 \cf8 \cb0 \CocoaLigature0 ; 
+\f0 \cf0 \cb1 \CocoaLigature1 \
 \
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 
@@ -1206,42 +1371,243 @@ Unix keeps track of who is allowed to do a sudo in a special file\
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 
 \f0\b0\fs26 \cf0 \
+	
+\f3 \cf8 \cb0 \CocoaLigature0 echo $PATH
+\f0 \cf0 \cb1 \CocoaLigature1 \
+	
+\f3 \cf8 \cb0 \CocoaLigature0 .:/usr/local/bin:/usr/bin:
+\f0 \cf0 \cb1 \CocoaLigature1  ...\
+\
+Set path for current session\
+\
+	
+\f3 \cf8 \cb0 \CocoaLigature0 PATH=/First/path/to/check:/Second/path
+\f0 \cf0 \cb1 \CocoaLigature1 \
+\
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 
 \f2\b\fs34 \cf0  System information commands\
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 
 \f0\b0\fs26 \cf0 \
+Some fun commands\
+\
+	
+\f3 \cf8 \cb0 \CocoaLigature0 date
+\f0 \cf0 \cb1 \CocoaLigature1 \
+	
+\f3 \cf8 \cb0 \CocoaLigature0 Wed 11 May 2016 09:53:53 BST
+\f0 \cf0 \cb1 \CocoaLigature1 \
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 	
+\f3 \cf8 \cb0 \CocoaLigature0 uptime
+\f0 \cf0 \cb1 \CocoaLigature1 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 	
+\f3 \cf8 \cb0 \CocoaLigature0  9:54  up 5 days,  1:01, 4 users,
+\f0 \cf0 \cb1 \CocoaLigature1  ...\
+\
+	who does not de-dupe the logged in users. So if you have many Terminal windows open, you will get many users listed by who\
+\
+	
+\f3 \cf8 \cb0 \CocoaLigature0 who
+\f0 \cf0 \cb1 \CocoaLigature1 \
+	
+\f3 \cf8 \cb0 \CocoaLigature0 kamranlayegh console  May  6 08:54
+\f0 \cf0 \cb1 \CocoaLigature1 \
+	
+\f3 \cf8 \cb0 \CocoaLigature0 kamranlayegh ttys000  May 10 20:01
+\f0 \cf0 \cb1 \CocoaLigature1 \
+	...\
+\
+	users de-dupes the two\
+	\
+	
+\f3 \cf8 \cb0 \CocoaLigature0 users
+\f0 \cf0 \cb1 \CocoaLigature1 \
+	
+\f3 \cf8 \cb0 \CocoaLigature0 kamranlayegh
+\f0 \cf0 \cb1 \CocoaLigature1 \
+\
+	Unix name that is running\
+\
+	
+\f3 \cf8 \cb0 \CocoaLigature0 uname
+\f0 \cf0 \cb1 \CocoaLigature1 \
+	
+\f3 \cf8 \cb0 \CocoaLigature0 Darwin
+\f0 \cf0 \cb1 \CocoaLigature1 \
+\
+	
+\f3 \cf8 \cb0 \CocoaLigature0 uname -mnrsvp
+\f0 \cf0 \cb1 \CocoaLigature1 \
+	
+\f3 \cf8 \cb0 \CocoaLigature0 Darwin albert.local 15.0.0 Darwin Kernel Version 15.0.0: Wed Aug 26 16:57:32 PDT 2015; root:xnu-3247.1.106~1/
+\f0 \cf0 \cb1 \CocoaLigature1 	
+\f3 \cf8 \cb0 \CocoaLigature0 RELEASE_X86_64 x86_64 i386
+\f0 \cf0 \cb1 \CocoaLigature1 \
+\
+	
+\f3 \cf8 \cb0 \CocoaLigature0 hostname
+\f0 \cf0 \cb1 \CocoaLigature1 \
+	
+\f3 \cf8 \cb0 \CocoaLigature0 albert.local
+\f0 \cf0 \cb1 \CocoaLigature1 \
+\
+	In my case domain name is not set to anything, so\
+\
+	
+\f3 \cf8 \cb0 \CocoaLigature0 domainname
+\f0 \cf0 \cb1 \CocoaLigature1 \
+	
+\f3 \cf8 \cb0 \CocoaLigature0               
+\f0 \cf0 \cb1 \CocoaLigature1 \
+\
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 
 \f2\b\fs34 \cf0  Disk information commands\
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 
-\f0\b0\fs26 \cf0 \
+\f0\b0\fs26 \cf0 	\
+	disk free space\
+\
+	
+\f3 \cf8 \cb0 \CocoaLigature0 df
+\f0 \cf0 \cb1 \CocoaLigature1 \
+	
+\f3 \cf8 \cb0 \CocoaLigature0 Filesystem    512-blocks       Used  Available Capacity   iused     ifree %iused  Mounted on\
+
+\f0 \cf0 \cb1 \CocoaLigature1 	
+\f3 \cf8 \cb0 \CocoaLigature0 /dev/disk0s2   623463232  517850688  105100544    84%  64795334  13137568   83%   /\
+
+\f0 \cf0 \cb1 \CocoaLigature1 	
+\f3 \cf8 \cb0 \CocoaLigature0 devfs                380        380          0   100%       658         0  100%   /dev\
+
+\f0 \cf0 \cb1 \CocoaLigature1 	
+\f3 \cf8 \cb0 \CocoaLigature0 map -hosts             0          0          0   100%         0         0  100%   /net\
+
+\f0 \cf0 \cb1 \CocoaLigature1 	
+\f3 \cf8 \cb0 \CocoaLigature0 map auto_home          0          0          0   100%         0         0  100%   /home\
+
+\f0 \cf0 \cb1 \CocoaLigature1 	
+\f3 \cf8 \cb0 \CocoaLigature0 /dev/disk2s2  1048576000 1000658040   47917960    96% 125082253   5989745   95%   /Volumes/Time Machine 2008\
+
+\f0 \cf0 \cb1 \CocoaLigature1 	
+\f3 \cf8 \cb0 \CocoaLigature0 /dev/disk1s2   976562560  545488936  431073624    56%  68186115  53884203   56%   /Volumes/TM Yosemite Nov 2015
+\f0 \cf0 \cb1 \CocoaLigature1 \
+	 ...\
+\
+You can humanise the numbers by the -h, or -H option (without either, number of bytes is displayed).\
+-h displays binary k etc i.e. 1 k = 1024\
+-H displays denary k etc i.e. 1 k = 1000\
+\
+	
+\f3 \cf8 \cb0 \CocoaLigature0 df -h 
+\f0 \cf0 \cb1 \CocoaLigature1 \
+\
+disk usage do not use 
+\f3 \cf8 \cb0 \CocoaLigature0 du
+\f0 \cf0 \cb1 \CocoaLigature1  on 
+\f3 \cf8 \cb0 \CocoaLigature0 /
+\f0 \cf0 \cb1 \CocoaLigature1  as it will want to display \cf6 everything on your hard drive\cf0 . If you accidentally do, \cf6 use\cf0  
+\f4 \cf8 \cb0 \CocoaLigature0 \uc0\u8963 
+\f3 c
+\f0 \cf0 \cb1 \CocoaLigature1  \cf6 to exit out of it.\cf0 \
+\
+Syntax\
+\
+	du 
+\i path
+\i0 \
+	Shows disk space used by directories. The numbers on the left are bytes.\
+\
+	
+\f3 \cf8 \cb0 \CocoaLigature0 du .
+\f0 \cf0 \cb1 \CocoaLigature1 \
+	
+\f3 \cf8 \cb0 \CocoaLigature0 0	./fastTest
+\f0 \cf0 \cb1 \CocoaLigature1 \
+	
+\f3 \cf8 \cb0 \CocoaLigature0 0	./kam
+\f0 \cf0 \cb1 \CocoaLigature1 \
+	...\
+\
+Add the -h (humanise) option to make the report more readable.\
+Add the -a (all) option to get files as well as directories\
+\
+	
+\f3 \cf8 \cb0 \CocoaLigature0 du -ha .
+\f0 \cf0 \cb1 \CocoaLigature1 \
+	
+\f3 \cf8 \cb0 \CocoaLigature0 8.0K	./.DS_Store
+\f0 \cf0 \cb1 \CocoaLigature1 \
+	
+\f3 \cf8 \cb0 \CocoaLigature0 4.0K	./calculation.txt
+\f0 \cf0 \cb1 \CocoaLigature1 \
+	...\
+\
+You can set the depth option. So to go only 1 deep\
+\
+	
+\f3 \cf8 \cb0 \CocoaLigature0 du -hd 1 .
+\f0 \cf0 \cb1 \CocoaLigature1 \
+	
+\f3 \cf8 \cb0 \CocoaLigature0 0B	./fastTest
+\f0 \cf0 \cb1 \CocoaLigature1 \
+	...\
+	Show the current directory plus 1 deep child directories\
+\
+To see disk usage for only the current directory, set the depth option to 0\
+\
+	
+\f3 \cf8 \cb0 \CocoaLigature0 du -hd 1 .
+\f0 \cf0 \cb1 \CocoaLigature1 \
+	
+\f3 \cf8 \cb0 \CocoaLigature0 176K	.
+\f0 \cf0 \cb1 \CocoaLigature1 	\
+\
+Note that disk usage reports space 
+\i set aside
+\i0 , not space 
+\i occupied
+\i0  by data (file size). To get the file size use ls.\
+\
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 
 \f2\b\fs34 \cf0  Viewing processes\
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 
 \f0\b0\fs26 \cf0 \
+\
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 
 \f2\b\fs34 \cf0  Monitoring processes\
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 
 \f0\b0\fs26 \cf0 \
+\
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 
 \f2\b\fs34 \cf0  Stopping processes\
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 
 \f0\b0\fs26 \cf0 \
+\
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 
 \f2\b\fs34 \cf0  Text file helpers\
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 
 \f0\b0\fs26 \cf0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f2\fs24 \cf0 {{\NeXTGraphic 1__#$!@%!#__Pasted Graphic 5.tiff \width4660 \height3760
+}¬}\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs26 \cf0 \
+\
+\
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 
 \f2\b\fs34 \cf0  Utility programs\
@@ -1254,18 +1620,212 @@ Unix keeps track of who is allowed to do a sudo in a special file\
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 
 \f0\b0\fs26 \cf0 \
+	
+\f3 \cf8 \cb0 \CocoaLigature0 history
+\f0 \cf0 \cb1 \CocoaLigature1 \
+	
+\f3 \cf8 \cb0 \CocoaLigature0    21  git branch
+\f0 \cf0 \cb1 \CocoaLigature1 \
+	
+\f3 \cf8 \cb0 \CocoaLigature0    22  git branch -a
+\f0 \cf0 \cb1 \CocoaLigature1 \
+	...\
+Then, \
 \
+	
+\f3 \cf8 \cb0 \CocoaLigature0 !22 
+\f0 \cf0 \cb1 \CocoaLigature1 \
 \
+will execute the 
+\f3 \cf8 \cb0 \CocoaLigature0 git branch
+\f0 \cf0 \cb1 \CocoaLigature1  command\
 \
+	
+\f3 \cf8 \cb0 \CocoaLigature0 !-2
+\f0 \cf0 \cb1 \CocoaLigature1 \
+\
+	Runs the 2nd previous command\
+\
+	
+\f3 \cf8 \cb0 \CocoaLigature0 !ban
+\f0 \cf0 \cb1 \CocoaLigature1 \
+	
+\f3 \cf8 \cb0 \CocoaLigature0  banner -w120 Kamran
+\f0 \cf0 \cb1 \CocoaLigature1 \
+	...\
+	There is no ban command. bash finds the most recent command that begins with ban, prints it and then executes it.\
+\
+	
+\f3 \cf8 \cb0 \CocoaLigature0 !!
+\f0 \cf0 \cb1 \CocoaLigature1  is a reference to the last command. Useful when you execute a command only to discover that you need root privileges. Then do\
+\
+	
+\f3 \cf8 \cb0 \CocoaLigature0 sudo !! 
+\f0 \cf0 \cb1 \CocoaLigature1 \
+\
+Another useful reference is 
+\f3 \cf8 \cb0 \CocoaLigature0 !$
+\f0 \cf0 \cb1 \CocoaLigature1  that references the argument to the previous command. For example:\
+\
+	
+\f3 \cf8 \cb0 \CocoaLigature0 nano fruit.txt
+\f0 \cf0 \cb1 \CocoaLigature1 \
+\
+Then,\
+\
+	
+\f3 \cf8 \cb0 \CocoaLigature0 cat !$
+\f0 \cf0 \cb1 \CocoaLigature1 \
+\
+will translate to 
+\f3 \cf8 \cb0 \CocoaLigature0 cat fruit.txt
+\f0 \cf0 \cb1 \CocoaLigature1 \
+\
+The d option deletes\
+\
+	
+\f3 \cf8 \cb0 \CocoaLigature0 history -d 27
+\f0 \cf0 \cb1 \CocoaLigature1 \
+\
+	will delete item 27 from history\
+\
+The c option clears\
+\
+	
+\f3 \cf8 \cb0 \CocoaLigature0 history -c
+\f0 \cf0 \cb1 \CocoaLigature1 \
+\
+	clear history\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f2\fs24 \cf0 {{\NeXTGraphic 1__#$!@%!#__Pasted Graphic 6.tiff \width11240 \height3340
+}¬}\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs26 \cf0 \
+\
+	\
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
 
-\f1\b\fs44 \cf3 Chapter 6 Redirecting Input and Output\
-\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\f1\b\fs44 \cf3 \
+\
+Chapter 6 Redirecting Input and Output\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 
-\f2\b0\fs34 \cf7 \
+\f0\b0\fs26 \cf0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f2\b\fs34 \cf0 Standard input and standard output\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\b0\fs26 \cf0 \
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f2\fs24 \cf0 {{\NeXTGraphic 1__#$!@%!#__Pasted Graphic 7.tiff \width2920 \height4240
+}¬}\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\fs34 \cf7 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs26 \cf0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f2\b\fs34 \cf0 Directing output to a file\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\b0\fs26 \cf0 \
+	
+\f3 \cf8 \cb0 \CocoaLigature0 sort fruit.txt
+\f0 \cf0 \cb1 \CocoaLigature1 \
+\
+	Simply sorts the lines and writes the output to the screen.\
+\
+	Use 
+\f2\b\fs34 >
+\f0\b0\fs26  to redirect output\
+\
+	
+\f3 \cf8 \cb0 \CocoaLigature0 sort fruit.txt > sorted_fruit.txt
+\f0 \cf0 \cb1 \CocoaLigature1 \
+\
+	Sorts fruit.txt and writes the output to sorted_fruit.txt, creating the file if necessary.\
+	If sorted_fruit.txt already exists, \cf6 it will be replaced\cf0 .\
+\
+	cat concatenates files. Hence\
+\
+	
+\f3 \cf8 \cb0 \CocoaLigature0 cat new_file.txt newer_file.txt > joined_file.txt
+\f0 \cf0 \cb1 \CocoaLigature1 \
+\
+	concatenates the first two files, and then writes the result to the last filename.\
+\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f2\b\fs34 \cf0 Appending to a file\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\b0\fs26 \cf0 \
+	We can append to the end of a file by using 
+\f3 \cf8 \cb0 \CocoaLigature0 >> 
+\f0 \cf0 \cb1 \CocoaLigature1 . For example\
+\
+	
+\f3 \cf8 \cb0 \CocoaLigature0 echo "Claire" >> people.txt
+\f0 \cf0 \cb1 \CocoaLigature1 \
+\
+	will append Claire to the end of the file.\
+\
+	We can also append a whole file to the end of another file. For example\
+\
+	
+\f3 \cf8 \cb0 \CocoaLigature0 cat file1.txt >> file2.txt
+\f0 \cf0 \cb1 \CocoaLigature1 \
+\
+	will append the contents of file1.txt to the end of file2.txt\
+\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f2\b\fs34 \cf0 Directing input from a file\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\b0\fs26 \cf0 \
+	Use 
+\f3 \cf8 \cb0 \CocoaLigature0 < 
+\f0 \cf0 \cb1 \CocoaLigature1  to direct input from a file\
+\
+	To illustrate\
+\
+	
+\f3 \cf8 \cb0 \CocoaLigature0 wc < lorem_ipsum.txt
+\f0 \cf0 \cb1 \CocoaLigature1 \
+\
+	will direct the input from the file into the sort command. (This is only for illustration\
+as 
+\f3 \cf8 \cb0 \CocoaLigature0 wc lorem_ipsum.txt
+\f0 \cf0 \cb1 \CocoaLigature1  would have worked. The output would have been a little different,\
+but the more important difference is that in the former command we are redirecting output\
+to wc, while in the latter we are passing the name of the file as an argument.)\
+\
+	It is also possible to redirect input from one file and then redirect the output to another file\
+\
+	
+\f3 \cf8 \cb0 \CocoaLigature0 (sort < fruit.txt) > sorted_fruit.txt
+\f0 \cf0 \cb1 \CocoaLigature1 \
+\
+	the parentheses are optional\
+\
+	Note: what comes to the right of 
+\f3 \cf8 \cb0 \CocoaLigature0 > 
+\f0 \cf0 \cb1 \CocoaLigature1  and 
+\f3 \cf8 \cb0 \CocoaLigature0 < 
+\f0 \cf0 \cb1 \CocoaLigature1  has to be a filename.\
+\
 \pard\pardeftab720\sl500\partightenfactor0
 
-\b \cf0 Piping output to input
+\f2\b\fs34 \cf0 Piping output to input
 \f0\b0\fs26 \
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
 \cf0 \
@@ -1273,7 +1833,7 @@ Unix keeps track of who is allowed to do a sudo in a special file\
 
 \f3\fs20 \cf0 \CocoaLigature0 	
 \fs26 \cf1 \cb5 \expnd0\expndtw0\kerning0
-\CocoaLigature1 echo "Hello World" | wc
+\CocoaLigature1 echo "Hello World" | wc 
 \fs20 \cf0 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 \
 	
 \f0\fs26 \CocoaLigature1 produces
@@ -1285,7 +1845,86 @@ Unix keeps track of who is allowed to do a sudo in a special file\
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 \cf0 	(1 line, 2 words, 12 chars)\
 \
+	
+\f3 \cf8 \cb0 \CocoaLigature0 echo "(3*4)+(11*37)" | bc
+\f0 \cf0 \cb1 \CocoaLigature1 \
+	
+\f3 \cf8 \cb0 \CocoaLigature0 419 
+\f0 \cf0 \cb1 \CocoaLigature1 \
 \
+	
+\f3 \cf8 \cb0 \CocoaLigature0 cat fruit.txt | sort
+\f0 \cf0 \cb1 \CocoaLigature1 \
+\
+	
+\f3 \cf8 \cb0 \CocoaLigature0 cat fruit.txt | sort | uniq
+\f0 \cf0 \cb1 \CocoaLigature1 \
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 	
+\f3 \cf8 \cb0 \CocoaLigature0 sort < fruit.txt | uniq
+\f0 \cf0 \cb1 \CocoaLigature1 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 \
+	is the same as \
+\
+	
+\f3 \cf8 \cb0 \CocoaLigature0 (sort < fruit.txt) | uniq
+\f0 \cf0 \cb1 \CocoaLigature1 \
+\
+	
+\f3 \cf8 \cb0 \CocoaLigature0 cat lorem_ipsum.txt | less
+\f0 \cf0 \cb1 \CocoaLigature1 \
+\
+	produces almost the same result as\
+\
+	
+\f3 \cf8 \cb0 \CocoaLigature0 less lorem_ipsum.txt
+\f0 \cf0 \cb1 \CocoaLigature1 \
+\
+	But with\
+\
+	
+\f3 \cf8 \cb0 \CocoaLigature0 ps aux | less
+\f0 \cf0 \cb1 \CocoaLigature1 \
+	\
+	we have no other option\
+\
+The key thing about pipe is that it pipes the 
+\b output of a command
+\b0  (not a file) to another 
+\b command
+\b0 . Hence, for example cat file1.txt, can be piped as it results in an output from a command, cat.\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f2\b\fs34 \cf0 Suppressing output\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\b0\fs26 \cf0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f2\fs24 \cf0 {{\NeXTGraphic 1__#$!@%!#__Pasted Graphic 8.tiff \width8120 \height2020
+}¬}\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs26 \cf0 \
+\
+We treat 
+\f3 \cf8 \cb0 \CocoaLigature0 /dev/null
+\f0 \cf0 \cb1 \CocoaLigature1  as a file\
+\
+	
+\f3 \cf8 \cb0 \CocoaLigature0 ls > /dev/null
+\f0 \cf0 \cb1 \CocoaLigature1 \
+\
+	the result of ls disappears in a black hole\
+\
+	
+\f3 \cf8 \cb0 \CocoaLigature0 cat /dev/null
+\f0 \cf0 \cb1 \CocoaLigature1 \
+\
+\
+ \
 \
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
 
@@ -1299,9 +1938,16 @@ Unix keeps track of who is allowed to do a sudo in a special file\
 \f0\b0\fs26 \
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
 \cf0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f2\fs24 \cf0 {{\NeXTGraphic 1__#$!@%!#__Pasted Graphic 9.tiff \width8180 \height5080
+}¬}\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs26 \cf0 \
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
 
-\f2\fs24 \cf0 When bash starts, it reads, in order:\
+\f2\fs24 \cf0 \
+When bash starts, it reads, in order:\
 	
 \f5\fs26 \cf11 \cb12 \expnd0\expndtw0\kerning0
 /etc/profile
@@ -1373,6 +2019,7 @@ fi
 \
 	
 \b "Steps"\
+\
 		
 \f3\b0 \cf1 \cb5 \expnd0\expndtw0\kerning0
 cd "/Users/kamranlayegh"
@@ -1413,12 +2060,192 @@ fi
 export GREP_OPTIONS="--color=auto"
 \f0 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
 \
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f2\b\fs34 \cf0 Setting command aliases\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\b0\fs26 \cf0 \
+	
+\f3 \cf8 \cb0 \CocoaLigature0 alias
+\f0 \cf0 \cb1 \CocoaLigature1 \
+\
+	Returns a list of all aliases defined\
+\
+	
+\f3 \cf8 \cb0 \CocoaLigature0 alias ll='ls -lah'
+\f0 \cf0 \cb1 \CocoaLigature1 \
+	\
+	Defines ll as an alias for 'ls -lah' for the current session\
+\
+To make sure the combination you are using (e.g. mv) is not already a name for a command, use which: which mv\
+\
+	To remove an alias use unalias\
+\
+	
+\f3 \cf8 \cb0 \CocoaLigature0 unalias ll
+\f0 \cf0 \cb1 \CocoaLigature1 \
+\
+To make an alias permanent put it in the 
+\f5 \cf11 \cb12 \expnd0\expndtw0\kerning0
+~/.bashrc
+\f0 \cf0 \cb1 \kerning1\expnd0\expndtw0  file. So, for example, you would add the following line\
+\
+	
+\f3 \cf8 \cb0 \CocoaLigature0 alias ll='ls -lahG' 
+\f0 \cf0 \cb1 \CocoaLigature1 \
+\
+To make bash read 
+\f5 \cf11 \cb12 \expnd0\expndtw0\kerning0
+.bashrc
+\f0 \cf0 \cb1 \kerning1\expnd0\expndtw0   file, type the following. Note that as ~/ is in PATH, it is enough to say 
+\f5 \cf11 \cb12 \expnd0\expndtw0\kerning0
+.bashrc
+\f0 \cf0 \cb1 \kerning1\expnd0\expndtw0   without the need for ~/\
+\
+	
+\f3 \cf8 \cb0 \CocoaLigature0 source .bashrc
+\f0 \cf0 \cb1 \CocoaLigature1 \
+\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f2\b\fs34 \cf0 Setting and exporting environment variables\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\b0\fs26 \cf0 \
+	Set a var\
+\
+	
+\f3 \cf8 \cb0 \CocoaLigature0 MYNAME='Kamran'
+\f0 \cf0 \cb1 \CocoaLigature1 \
+\
+	Retrieve\
+	\
+	
+\f3 \cf8 \cb0 \CocoaLigature0 echo $MYNAME
+\f0 \cf0 \cb1 \CocoaLigature1 \
+\
+To make a var permanent, need to put it in 
+\f5 \cf11 \cb12 \expnd0\expndtw0\kerning0
+~/.bashrc
+\f0 \cf0 \cb1 \kerning1\expnd0\expndtw0  and to make it get passed to programs that bash starts, we need to export it\
+\
+	
+\f3 \cf8 \cb0 \CocoaLigature0 MYNAME='Kamran'
+\f0 \cf0 \cb1 \CocoaLigature1 \
+	
+\f3 \cf8 \cb0 \CocoaLigature0 export MYNAME
+\f0 \cf0 \cb1 \CocoaLigature1 \
+\
+	
+\f3 \cf8 \cb0 \CocoaLigature0 export LESS='-M'
+\f0 \cf0 \cb1 \CocoaLigature1 \
+\
+	set the var LESS and export it at the same time.\
+	Note: LESS is a variable whose value will be passed to the less command.\
+	So, after the 
+\f3 \cf8 \cb0 \CocoaLigature0 export LESS='-M'
+\f0 \cf0 \cb1 \CocoaLigature1  has executed then if you execute 
+\f3 \cf8 \cb0 \CocoaLigature0 less
+\f0 \cf0 \cb1 \CocoaLigature1 , you will get 
+\f3 \cf8 \cb0 \CocoaLigature0 less -M 
+\f0 \cf0 \cb1 \CocoaLigature1   \
+\
+	Note: You need to run 
+\f3 \cf8 \cb0 \CocoaLigature0 source .bashrc
+\f0 \cf0 \cb1 \CocoaLigature1  for the above to take effect.\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f2\b\fs34 \cf0 Setting the PATH variable\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\b0\fs26 \cf0 \
+Say PATH='foo:bar' to set the PATH var for this session.\
+To set PATH permanently, define it in .bashrc\
+\
+	
+\f3 \cf8 \cb0 \CocoaLigature0 export PATH="/usr/local/bin:$PATH"
+\f0 \cf0 \cb1 \CocoaLigature1 \
+\
+	Note: Must use double quotes for 
+\f3 \cf8 \cb0 \CocoaLigature0 $PATH
+\f0 \cf0 \cb1 \CocoaLigature1  to be evaluated and substituted\
+\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f2\b\fs34 \cf0 Configuring history with variables\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\b0\fs26 \cf0 \
+	Clear history\
+\
+	
+\f3 \cf8 \cb0 \CocoaLigature0 history -c
+\f0 \cf0 \cb1 \CocoaLigature1 \
+\
+\
+\
+\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f2\b\fs34 \cf0 Customizing the command prompt\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\b0\fs26 \cf0 \
+	Username\
+\
+	
+\f3 \cf8 \cb0 \CocoaLigature0 PS1="\\u"
+\f0 \cf0 \cb1 \CocoaLigature1 \
+\
+Other options\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f2\fs24 \cf0 {{\NeXTGraphic 4__#$!@%!#__Pasted Graphic.tiff \width10760 \height6600
+}¬}
+\f0\fs26 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 \
+The Mac default value for PS1 is\
+\
+	
+\f3 \cf8 \cb0 \CocoaLigature0 PS1="\\h:\\W \\u$ "
+\f0 \cf0 \cb1 \CocoaLigature1 \
+\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f2\b\fs34 \cf0 Logout file\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0\b0\fs26 \cf0 \
+Unix will read the\
+\
+	
+\f3 \cf8 \cb0 \CocoaLigature0 .bash_logout
+\f0 \cf0 \cb1 \CocoaLigature1 \
+\
+file and execute any commands there. To see any echo statements, you need to use\
+\
+	
+\f3 \cf8 \cb0 \CocoaLigature0 exit
+\f0 \cf0 \cb1 \CocoaLigature1 \
+\
+rather than closing the Terminal window\
+\
 \pard\pardeftab720\sl500\partightenfactor0
 
 \f2\b\fs34 \cf0 Cleanup
 \f0\b0\fs26 \
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
-\cf0 	~/.bash_logout is read and executed when you close a terminal window.\
+\cf0 \
+	~/.bash_logout is read and executed when you close a terminal window.\
 \
 \
 \
@@ -1427,10 +2254,14 @@ export GREP_OPTIONS="--color=auto"
 \f1\b\fs44 \cf3 Chapter 8 Unix Power Tools\
 
 \f0\b0\fs26 \cf0 \
-\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 
-\f2\b\fs34 \cf0 Find a text inside a given file
-\f0\b0\fs26 \
+\f2\b\fs34 \cf0 grep: Searching for matching expressions\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+
+\i Find a text inside a given file
+\f0\i0\b0\fs26 \
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 \cf0 \
                                               23.04.2016\
@@ -1638,10 +2469,14 @@ foreground colors     background colors     attributes\
 \CocoaLigature1 grep '.a.a.a' fruit.txt
 \fs20 \cf0 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 \
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
-\cf14 \cb15 banana\cf0 \cb1 \
+
+\f2\fs24 \cf0 \CocoaLigature1 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f3\fs20 \cf14 \cb15 \CocoaLigature0 banana\cf0 \cb1 \
 \cf14 \cb15 papaya
 \f2\fs24 \cf0 \cb1 \CocoaLigature1 	\
-	as . matches exactly one character.\
+	as . matches exactly one character\
 \
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
 
@@ -1650,7 +2485,11 @@ foreground colors     background colors     attributes\
 \CocoaLigature1 grep 'a..le' fruit.txt
 \fs20 \cf0 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 \
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
-\cf14 \cb15 apple\cf0 \cb1 \
+
+\f2\fs24 \cf0 \CocoaLigature1 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f3\fs20 \cf14 \cb15 \CocoaLigature0 apple\cf0 \cb1 \
 pine\cf14 \cb15 apple\cf0 \cb1 \
 \cf14 \cb15 apple\cf0 \cb1 \
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
@@ -1660,10 +2499,15 @@ pine\cf14 \cb15 apple\cf0 \cb1 \
 \f3\fs26 \cf1 \cb5 \expnd0\expndtw0\kerning0
 grep 'ea[cp]' fruit.txt
 \fs20 \cf0 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 \
-p\cf14 \cb15 eac\cf0 \cb1 h\
-pin\cf14 \cb15 eap\cf0 \cb1 ple\
 
-\f2\fs24 \CocoaLigature1 		
+\f2\fs24 \CocoaLigature1 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f3\fs20 \cf0 \CocoaLigature0 p\cf14 \cb15 eac\cf0 \cb1 h\
+pin\cf14 \cb15 eap\cf0 \cb1 ple\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f2\fs24 \cf0 \CocoaLigature1 		
 \f0\fs26 \cf13 8.4 Introduction to regular expressions
 \f2\fs24 \cf0 \
 \
@@ -1677,8 +2521,9 @@ pin\cf14 \cb15 eap\cf0 \cb1 ple\
 \cf0    {{\NeXTGraphic 1__#$!@%!#__1__#$!@%!#__Pasted Graphic 2.tiff \width12280 \height7260
 }¬}\
     \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 
-\b Regular Expression Character classes
+\b \cf0 Regular Expression Character classes
 \b0 \
 \
      {{\NeXTGraphic 1__#$!@%!#__Pasted Graphic 3.tiff \width10980 \height6280
@@ -1839,9 +2684,9 @@ tr ',' '\\t' < us_presidents.csv > us_presidents.tsv
 	{{\NeXTGraphic 1__#$!@%!#__1__#$!@%!#__Pasted Graphic 4.tiff \width7540 \height3340
 }¬}\
 \
-	{{\NeXTGraphic 1__#$!@%!#__Pasted Graphic 5.tiff \width9560 \height4180
+	{{\NeXTGraphic 1__#$!@%!#__1__#$!@%!#__Pasted Graphic 5.tiff \width9560 \height4180
 }¬}\
-	  {{\NeXTGraphic 1__#$!@%!#__Pasted Graphic 6.tiff \width7260 \height3120
+	  {{\NeXTGraphic 1__#$!@%!#__1__#$!@%!#__Pasted Graphic 6.tiff \width7260 \height3120
 }¬}\
 	\
 		
@@ -2208,7 +3053,7 @@ line 2:  delete delete delete delete delete delete
 \b0 \
 \
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
-\cf0 {{\NeXTGraphic 1__#$!@%!#__Pasted Graphic 7.tiff \width8320 \height3980
+\cf0 {{\NeXTGraphic 1__#$!@%!#__1__#$!@%!#__Pasted Graphic 7.tiff \width8320 \height3980
 }¬}\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 \cf0 \
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
@@ -2224,7 +3069,7 @@ line 2:  delete delete delete delete delete delete
 \b\fs34 \cf0 diff Controlling its output
 \b0\fs24 \
 	\
-	{{\NeXTGraphic 1__#$!@%!#__Pasted Graphic 8.tiff \width9840 \height3900
+	{{\NeXTGraphic 1__#$!@%!#__1__#$!@%!#__Pasted Graphic 8.tiff \width9840 \height3900
 }¬}\
 	The 
 \f5\fs26 \cf11 \cb12 \expnd0\expndtw0\kerning0
@@ -2269,7 +3114,7 @@ diff -u original_file.txt revised_file.txt
 \f3\fs26 \cf1 \cb5 \expnd0\expndtw0\kerning0
 diff -u original_file.txt revised_file.txt | mate
 \f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
-	{{\NeXTGraphic 1__#$!@%!#__Pasted Graphic 9.tiff \width11980 \height9320
+	{{\NeXTGraphic 1__#$!@%!#__1__#$!@%!#__Pasted Graphic 9.tiff \width11980 \height9320
 }¬}\
 	For a count of changes, pipe to 
 \f5\fs26 \cf11 \cb12 \expnd0\expndtw0\kerning0
@@ -2599,6 +3444,21 @@ file name
 
 \f2\fs24 \cf0        \cb17      \cb1    \cb18      \cb1    \cb19      \cb1    \cb20      \cb1    \cb21      \cb1    \cb22      \cb1    \cb23      \cb1  \
 \
-\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f4\fs26 \cf2 \uc0\u8984 
+\f0 \cf2  2318\
+
+\f4 \cf2 \uc0\u8679 
+\f0 \cf2  21e7\
+
+\f4 \cf2 \uc0\u8997 
+\f0 \cf2  2325\
+
+\f4 \cf2 \uc0\u8963 
+\f0 \cf2  2303\
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs24 \cf0 \
 \
 }
